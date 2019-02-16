@@ -99,8 +99,16 @@ public class Constants {
 	public static final int SHIFT_HIGH_BUTTON = 7;
 	public static final int SHIFT_LOW_BUTTON = 10;
 	
-	public static final int TURN_CENTER_LIMELIGHT_BUTTON = 1;
-	
+	public static final int HAB_RETRACT = 1;
+	public static final int HAB_EXTEND = 2;
+	public static final int CARGO_SHIP_HEIGHT = 3;
+	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 7;
+	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
+	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 9;
+	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 4;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
+	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 6;
+
 
 	// public static final int INTAKE_SLIDE_IN_BUTTON = 8;
 	// public static final int INTAKE_SLIDE_OUT_BUTTON = 6;
