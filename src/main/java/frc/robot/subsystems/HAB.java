@@ -24,59 +24,47 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
-public class OverRoller extends Subsystem {
+public class HAB extends Subsystem {
   //change ports later
-  private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
-  private Solenoid habClimb = new Solenoid(9);
-  private Solenoid habRamp = new Solenoid(8);
-  private Solenoid overRollerExtender = new Solenoid(7);
+  private Solenoid habClimb = new Solenoid(RobotMap.HAB_CLIMB_PORT);
+  private Solenoid habRamp = new Solenoid(RobotMap.HAB_RAMP_PORT);
 
-  private boolean overRollerState = false;  
+  private boolean habClimbState = true;
+  private boolean habRampState = true;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-
-  public void overRollerSpeed(double Power) {
-		overRollerMotor.set(ControlMode.PercentOutput, Power);
-	}
-	
-  public void cargoheadStop() {
-    overRollerMotor.set(ControlMode.PercentOutput, 0.0);
-  }
-
-  public void overRollerExtend() {
-    overRollerExtender.set(true);
-    overRollerState = true;
-	}
-	
-	public void overRollerRetract() {
-    overRollerExtender.set(false);
-    overRollerState = false;
-  }
-  
+ 
   public void habClimbUp() {
     habClimb.set(true);
+    habClimbState = true;
 	}
 	
 	public void habClimbDown() {
     habClimb.set(false);
+    habClimbState = false;
   }
   
+  public boolean habClimbState(){
+    return habClimbState;
+  }
+
   public void habRampUp() {
     habRamp.set(true);
+    habRampState = true;
 	}
 	
 	public void habRampDown() {
     habRamp.set(false);
+    habRampState = false;
   }
 
-  public boolean overRollerState() {
-		return overRollerState;
-	}
-	
+  public boolean habRampState(){
+    return habRampState;
+  }
 
 }

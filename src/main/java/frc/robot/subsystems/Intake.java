@@ -29,16 +29,20 @@ public class Intake extends Subsystem {
   //Setup ports in RobotMap
   private TalonSRX cargoHeadRight  = new TalonSRX(RobotMap.RIGHT_CARGOHEAD_MOTOR_PORT);
   private TalonSRX cargoHeadLeft = new TalonSRX(RobotMap.LEFT_CARGOHEAD_MOTOR_PORT);
+  private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
+
   
   private DoubleSolenoid openCenterRotate = new DoubleSolenoid(1, 2);
   private DoubleSolenoid openCenterTilt = new DoubleSolenoid(3, 4);
 
-  private Solenoid beakExtender = new Solenoid(6);
-  private Solenoid beakOpener = new Solenoid(5);
+  private Solenoid beakExtender = new Solenoid(RobotMap.BEAK_EXTENDER_PORT);
+  private Solenoid beakOpener = new Solenoid(RobotMap.BEAK_OPENER_PORT);
+  private Solenoid overRollerExtender = new Solenoid(RobotMap.OVER_ROLLER_EXTENDER_PORT);
 
   private boolean beakOpenState = false;  
   private boolean beakExtendState = false;
-
+  private boolean overRollerState = false;  
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -54,6 +58,28 @@ public class Intake extends Subsystem {
     cargoHeadLeft.set(ControlMode.PercentOutput, 0.0);
 		cargoHeadRight.set(ControlMode.PercentOutput, 0.0);
   }
+
+  public void overRollerSpeed(double Power) {
+		overRollerMotor.set(ControlMode.PercentOutput, Power);
+	}
+	
+  public void overRollerStop() {
+    overRollerMotor.set(ControlMode.PercentOutput, 0.0);
+  }
+
+  public void overRollerExtend() {
+    overRollerExtender.set(true);
+    overRollerState = true;
+	}
+	
+	public void overRollerRetract() {
+    overRollerExtender.set(false);
+    overRollerState = false;
+  }
+
+  public boolean overRollerState() {
+		return overRollerState;
+	}
 
   public void beakEnxtend() {
     beakExtender.set(true);

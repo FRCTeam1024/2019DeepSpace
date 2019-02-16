@@ -38,7 +38,13 @@ public class RobotMap {
 	public static final int INTAKE_POS_PORT = 4;
 	public static final int LIFT_CLAMP_PORT = 5;
 	
-	
+	public static final int OVER_ROLLER_EXTENDER_PORT = 7;
+	public static final int HAB_RAMP_PORT = 8;
+	public static final int HAB_CLIMB_PORT = 9;
+
+	public static final int BEAK_OPENER_PORT = 5;
+	public static final int BEAK_EXTENDER_PORT = 6;
+
 	//I2C
 	public static final Port NAVX_PORT = Port.kMXP;
 	public static final Port COLOR_SENSOR_PORT = Port.kOnboard;

@@ -50,13 +50,14 @@ public class Drivetrain extends Subsystem {
 	private TalonSRX middleRight = new TalonSRX(RobotMap.MIDDLE_RIGHT_MOTOR_PORT);
 	private TalonSRX rearRight = new TalonSRX(RobotMap.REAR_RIGHT_MOTOR_PORT);
 	private Solenoid shifter = new Solenoid(RobotMap.SHIFTER_PORT);
+
 	//private AHRS navx;
 	private AnalogGyro navx;
 	private I2C ColorSensor;
 
 	public double rotateToAngleRate;
 	 
-  //	public double pidGet;
+  	//public double pidGet;
 	
 	//Remove these and any references when set properly
 	public double turnkP = Constants.TURN_KP;
@@ -65,7 +66,7 @@ public class Drivetrain extends Subsystem {
 	public double turnkF = Constants.TURN_KF;
 	
 	public Encoder encoder = new Encoder(RobotMap.DRIVE_ENCODER_CHANNEL_A, RobotMap.DRIVE_ENCODER_CHANNEL_B, false, EncodingType.k4X);
-	public Encoder encoder2 = new Encoder(3,4, false, EncodingType.k4X);
+	public Encoder encoder2 = new Encoder(RobotMap.DRIVE_ENCODER2_CHANNEL_A,RobotMap.DRIVE_ENCODER2_CHANNEL_B, false, EncodingType.k4X);
 	
 	public PIDController posPID;
 	public PIDController turnPID;
@@ -89,7 +90,7 @@ public class Drivetrain extends Subsystem {
 		navx.setPIDSourceType(PIDSourceType.kDisplacement);
 		navx.reset();
 		
-		    turnPID = new PIDController(Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, navx, output->{});
+		turnPID = new PIDController(Constants.TURN_KP, Constants.TURN_KI, Constants.TURN_KD, navx, output->{});
         turnPID.setInputRange(Constants.MIN_ROTATION_ANGLE, Constants.MAX_ROTATION_ANGLE);
         turnPID.setContinuous(true);
         turnPID.setOutputRange(Constants.TURN_PID_MIN_OUTPUT, Constants.TURN_PID_MAX_OUTPUT); //probably will be much less
@@ -106,8 +107,9 @@ public class Drivetrain extends Subsystem {
         
         encoder.setPIDSourceType(PIDSourceType.kDisplacement);
         encoder.setDistancePerPulse(Constants.DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
-		    encoder.setReverseDirection(true);
-		    encoder2.setPIDSourceType(PIDSourceType.kDisplacement);
+		encoder.setReverseDirection(true);
+
+		encoder2.setPIDSourceType(PIDSourceType.kDisplacement);
         encoder2.setDistancePerPulse(Constants.DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
         encoder2.setReverseDirection(false);
         
@@ -116,8 +118,6 @@ public class Drivetrain extends Subsystem {
         posPID.setOutputRange(Constants.POS_PID_MIN_OUTPUT, Constants.POS_PID_MAX_OUTPUT);
         
         //turnPID.setPercentTolerance(1.0);
-        
-        
 	}
   
   public void initDefaultCommand() {
@@ -207,9 +207,4 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Encoder Value:", encoder.getDistance());
 		SmartDashboard.putNumber("Encoder 2 Value", encoder2.getDistance());
 	}
-
-	
-
-
-
 }
