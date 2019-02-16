@@ -119,7 +119,7 @@ public class Intake extends Subsystem {
     openCenterTilt.set(DoubleSolenoid.Value.kReverse);
   }
 
-  public void tiltReset(){
+  public void tiltNeutral(){
     openCenterTilt.set(DoubleSolenoid.Value.kOff);
   }
 
@@ -133,7 +133,7 @@ public class Intake extends Subsystem {
     openCenterRotate.set(DoubleSolenoid.Value.kReverse);
   }
 
-  public void rotateReset(){
+  public void rotateNeutral(){
     openCenterRotate.set(DoubleSolenoid.Value.kOff);
   }
 }

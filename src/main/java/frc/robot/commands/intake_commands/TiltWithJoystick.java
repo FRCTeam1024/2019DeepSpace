@@ -5,19 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.lift_commands;
+package frc.robot.commands.intake_commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
-public class LiftRocketCargoLevelTwo extends Command {
-  public boolean isFinished = false;
+public class TiltWithJoystick extends Command {
 
-
-  public LiftRocketCargoLevelTwo() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.lift);
+  public TiltWithJoystick() {
+    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
@@ -28,18 +24,34 @@ public class LiftRocketCargoLevelTwo extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.lift.moveCarriage(0.5);
-    if(Robot.lift.getLiftEncoderValue() >= 300){
-      Robot.lift.stopLift();
-      isFinished = true;
-    }
-
+    rotateHead();
+    tiltHead();
   }
 
+  private void rotateHead(){
+    if(Robot.oi.usbJoy.getX() > .5){
+      Robot.intake.rotateRight();;
+    }else if(Robot.oi.usbJoy.getX() < .5){
+      Robot.intake.rotateLeft();;
+    }else{
+      Robot.intake.rotateNeutral();;
+    }
+  }
+
+  private void tiltHead(){
+    if(Robot.oi.usbJoy.getY() > .5){
+      Robot.intake.tiltUp();
+    }else if(Robot.oi.usbJoy.getY() < .5){
+      Robot.intake.tiltDown();;
+    }else{
+      Robot.intake.tiltNeutral();;
+    }
+  }
+  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return false;
   }
 
   // Called once after isFinished returns true

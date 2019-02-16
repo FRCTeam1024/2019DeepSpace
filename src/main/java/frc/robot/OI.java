@@ -7,6 +7,7 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
@@ -24,7 +25,7 @@ public class OI {
 	public final Joystick lJoy = new Joystick(Constants.LEFT_JOYSTICK_PORT);
 	public final Joystick rJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
 	public final Logitech logi = new Logitech(Constants.LOGITECH_JOYSTICK_PORT);
-	public final  Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
+	public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
 	JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT);
 	JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
 	JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
@@ -72,20 +73,19 @@ public class OI {
 
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
-		//cargoShoot.whenPressed(new );
+		cargoShoot.whenPressed(new ShootCargoHead());
 		cargoIntake.whenPressed(new IntakeOverRoller());
 		
 
 		//closeClamp.whenPressed(new CloseClamp());
-    //openClamp.whenPressed(new OpenClamp());
-    // logi.dPad.down.whenPressed(new IntakeRetract());
-	// 	logi.dPad.up.whenPressed(new IntakeExtend());
+    	//openClamp.whenPressed(new OpenClamp());
+    	//logi.dPad.down.whenPressed(new IntakeRetract());
+		//logi.dPad.up.whenPressed(new IntakeExtend());
 		//logi.dPad.left.whenPressed(new IntakeNarrow());
 		//logi.dPad.right.whenPressed(new IntakeFlat());
 		// logi.dPad.upLeft.whenPressed(new IntakeExtendNarrow());
 		// logi.dPad.upRight.whenPressed(new IntakeExtendFlat());
 	//	logi.a.whenPressed(new TurnToTarget());
 		//turnToCenterLimelight.whenActive(new TurnToCenterLimelight());
-		
 	}
 }
