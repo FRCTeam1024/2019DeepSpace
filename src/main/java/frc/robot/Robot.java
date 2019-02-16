@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
   	public static OI oi = new OI();
   	public static Lift lift = new Lift();
   	public static Intake intake = new Intake();
-  	public static HAB hab = new HAB();
+  	public static Hab hab = new Hab();
   	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
