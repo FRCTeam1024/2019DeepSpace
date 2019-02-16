@@ -9,13 +9,6 @@ package frc.robot;
 
 import java.util.List;
 
-import org.opencv.core.MatOfKeyPoint;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.KeyPoint;
-import org.opencv.core.Rect;
-import org.opencv.core.Size;
-import org.opencv.imgproc.Imgproc;
-
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.HttpCamera;
 import edu.wpi.cscore.VideoMode;
@@ -42,24 +35,27 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.*;
+import frc.robot.commands.intake_commands.TiltWithJoystick;
 import frc.robot.commands.limelight_commands.*;
 import frc.robot.logging.*;
 
 public class Robot extends TimedRobot {
 
 	public static Drivetrain drivetrain = new Drivetrain();
-  public static OI oi = new OI();
-  public static Lift lift = new Lift();
-  public static Intake intake = new Intake();
-  public static HAB hab = new HAB();
-  public static Sensors sensors = new Sensors();
+  	public static OI oi = new OI();
+  	public static Lift lift = new Lift();
+  	public static Intake intake = new Intake();
+  	public static HAB hab = new HAB();
+  	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
 	Command m_autonomousCommand;
 	Command turnTargetCommand;
 	Command driveTargetCommand;
 	Command driveCommand;
-	
+	Command driveWithJoysticks = new DriveWithJoysticks();
+	Command	tiltWithJoysticks = new TiltWithJoystick();
+
 	SendableChooser<String> autoChooser = new SendableChooser<String>();
 
 	// define the logger for this class. This should be done for every class
@@ -77,7 +73,7 @@ public class Robot extends TimedRobot {
 		NetworkTableEntry ty;
 		NetworkTableEntry ta;
 		initLogging();
-    sensors.startColorSensor();
+    	sensors.startColorSensor();
     
 		try {
 			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
@@ -248,15 +244,16 @@ public class Robot extends TimedRobot {
 
 		Scheduler.getInstance().run();
 		outputCameraToSmartDashboard();
+		drivetrain.outputToSmartDashboard();
 
 		//intake.setCubeLight();
-		drivetrain.outputToSmartDashboard();
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
 		//intake.cubeLight.set(Relay.Value.kForward);
-
 		//turnTargetCommand.start();
-	
+		
+		driveWithJoysticks.start();
+		tiltWithJoysticks.start();
 	}
 	
 	@Override

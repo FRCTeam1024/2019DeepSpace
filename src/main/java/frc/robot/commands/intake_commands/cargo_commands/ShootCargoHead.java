@@ -5,19 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.lift_commands;
+package frc.robot.commands.intake_commands.cargo_commands;
 
-import frc.robot.Robot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.*;
 
-public class LiftRocketCargoLevelTwo extends Command {
-  public boolean isFinished = false;
+public class ShootCargoHead extends Command {
 
+  private boolean isFinished = false;
 
-  public LiftRocketCargoLevelTwo() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.lift);
+  public ShootCargoHead() {
+    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
@@ -28,12 +27,9 @@ public class LiftRocketCargoLevelTwo extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.lift.moveCarriage(0.5);
-    if(Robot.lift.getLiftEncoderValue() >= 300){
-      Robot.lift.stopLift();
-      isFinished = true;
-    }
-
+    Robot.intake.cargoheadSpeed(1.0);
+    Timer.delay(.2);
+    isFinished = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
