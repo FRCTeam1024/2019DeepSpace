@@ -14,7 +14,7 @@ public class ObtainCargo extends CommandGroup {
    * Add your docs here.
    */
   public ObtainCargo() {
-    addSequential(new OverRollerExtend());
-    addSequential(new OverRollerIntake());
+    addSequential(new ExtendOverRoller());
+    addSequential(new IntakeOverRoller());
   }
 }

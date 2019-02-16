@@ -5,17 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.cargo_commands;
+package frc.robot.commands.intake_commands.hatch_commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
 
-public class OverRollerIntake extends Command {
+public class RetractBeak extends Command {
 
   private boolean isFinished = false;
 
-  public OverRollerIntake() {
+  public RetractBeak() {
     requires(Robot.intake);
   }
 
@@ -27,9 +27,9 @@ public class OverRollerIntake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.overRollerSpeed(0.7);
-    Timer.delay(1);
-    isFinished = true;
+      Robot.intake.beakRetract();
+      Timer.delay(.7);
+      isFinished = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,7 +41,6 @@ public class OverRollerIntake extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.overRollerSpeed(0.0);
   }
 
   // Called when another command which requires one or more of the same
