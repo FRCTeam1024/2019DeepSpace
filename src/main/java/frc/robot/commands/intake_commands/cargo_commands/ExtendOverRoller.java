@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
 
-public class OverRollerExtend extends Command {
+public class ExtendOverRoller extends Command {
 
   private boolean isFinished = false;
 
-  public OverRollerExtend() {
+  public ExtendOverRoller() {
     requires(Robot.intake);
   }
 
@@ -27,10 +27,8 @@ public class OverRollerExtend extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(!Robot.intake.overRollerState()){
       Robot.intake.overRollerExtend();
       Timer.delay(.5);
-    }
     isFinished = true;
   }
 
