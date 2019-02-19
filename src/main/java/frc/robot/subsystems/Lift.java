@@ -49,6 +49,7 @@ import frc.robot.commands.lift_commands.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.RemoteFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -65,9 +66,10 @@ public class Lift extends Subsystem {
 	
 	public TalonSRX liftMotor1 = new TalonSRX(RobotMap.LIFT_MOTOR_1_PORT);
 	public TalonSRX liftMotor2 = new TalonSRX(RobotMap.LIFT_MOTOR_2_PORT);
+
 	public Lift () {
 		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
-		liftMotor2.follow(liftMotor1);
+	//	liftMotor2.follow(liftMotor1);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor1.config_kI(0, Constants.LIFT_KI, 10);
 		liftMotor1.config_kD(0, Constants.LIFT_KD, 10);
@@ -76,7 +78,7 @@ public class Lift extends Subsystem {
 		liftMotor2.config_kD(0, Constants.LIFT_KD, 10);*/
 		configMaxOutputs(1.0);
 		liftMotor1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-		liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+	//	liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
 	}
 	
 	public void moveCarriage(double power) {
@@ -111,8 +113,8 @@ public class Lift extends Subsystem {
 	public void configMaxOutputs(double maxPower) {
 		liftMotor1.configPeakOutputForward(maxPower, 10);
 		liftMotor1.configPeakOutputReverse(-maxPower, 10);
-		liftMotor2.configPeakOutputForward(maxPower, 10); 
-		liftMotor2.configPeakOutputReverse(-maxPower, 10);
+	//	liftMotor2.configPeakOutputForward(maxPower, 10); 
+	//	liftMotor2.configPeakOutputReverse(-maxPower, 10);
 	}
 	
 	public double getCommandedOutput() {

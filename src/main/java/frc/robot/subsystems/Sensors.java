@@ -10,15 +10,20 @@ package frc.robot.subsystems;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.I2C;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Sensors {
 
-private I2C ColorSensor;
-private ByteBuffer buf = ByteBuffer.allocate(5);
+    private I2C ColorSensor;
+    private ByteBuffer buf = ByteBuffer.allocate(5);
+    private DigitalInput limitSwitchTop = new DigitalInput(RobotMap.LIMIT_SWITCH_TOP);
+    private DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.LIMIT_SWITCH_BOTTOM);
 
 public void startColorSensor(){
     ColorSensor = new I2C(RobotMap.COLOR_SENSOR_PORT, 0x39);
@@ -52,5 +57,12 @@ public void printValue(){
     SmartDashboard.putNumber("Blue Value", blue());
 }
 
+public boolean getLimitSwitchBottom(){
+  return limitSwitchBottom.get();
+}
+
+public boolean getLimitSwitchTop(){
+  return limitSwitchTop.get();
+}
 
 }
