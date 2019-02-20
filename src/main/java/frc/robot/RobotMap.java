@@ -18,7 +18,7 @@ public class RobotMap {
   //Motors:
 	public static final int OVER_ROLLER_MOTOR_PORT = 10;
 	
-	public static final int LEFT_CARGOHEAD_MOTOR_PORT = 42;
+	public static final int LEFT_CARGOHEAD_MOTOR_PORT = 11;
 	public static final int RIGHT_CARGOHEAD_MOTOR_PORT = 1;
 
 	public static final int FRONT_LEFT_MOTOR_PORT = 2;

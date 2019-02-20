@@ -42,13 +42,14 @@ import frc.robot.logging.*;
 public class Robot extends TimedRobot {
 
 	public static Drivetrain drivetrain = new Drivetrain();
-  	public static OI oi = new OI();
   	public static Lift lift = new Lift();
   	public static Intake intake = new Intake();
   	public static HAB hab = new HAB();
   	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
+	public static OI oi = new OI();
+  	
 	Command m_autonomousCommand;
 	Command turnTargetCommand;
 	Command driveTargetCommand;

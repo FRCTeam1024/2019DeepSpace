@@ -32,8 +32,8 @@ public class Intake extends Subsystem {
   private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
   
-  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(1, 2);
-  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(3, 4);
+  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(12, 1, 2);
+  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(12, 3, 4);
 
   private Solenoid beakExtender = new Solenoid(RobotMap.BEAK_EXTENDER_PORT);
   private Solenoid beakOpener = new Solenoid(RobotMap.BEAK_OPENER_PORT);
