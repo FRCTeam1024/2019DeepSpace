@@ -37,6 +37,7 @@ import frc.robot.subsystems.*;
 import frc.robot.commands.*;
 import frc.robot.commands.intake_commands.TiltWithJoystick;
 import frc.robot.commands.limelight_commands.*;
+import frc.robot.commands.drivetrain_commands.*;
 import frc.robot.logging.*;
 
 public class Robot extends TimedRobot {
@@ -44,7 +45,7 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain = new Drivetrain();
   	public static Lift lift = new Lift();
   	public static Intake intake = new Intake();
-  	public static HAB hab = new HAB();
+  	public static Hab hab = new Hab();
   	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
