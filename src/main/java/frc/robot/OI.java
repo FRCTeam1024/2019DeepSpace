@@ -58,6 +58,7 @@ public class OI {
 	
 	
 	public OI () {
+		
 		liftCargoShip.whenActive(new LiftCargoShip());
 		liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
 		liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
@@ -65,7 +66,7 @@ public class OI {
 		liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOne());
 		liftRocketHatchLevelTwo.whenActive(new LiftRocketHatchLevelTwo());
 		liftRocketHatchLevelThree.whenActive(new LiftRocketHatchLevelThree());
-
+		
 		beakExtend.whenPressed(new ExtendBeak());
 		beakRetract.whenPressed(new RetractBeak());
 		beakOpen.whenPressed(new OpenBeak());
@@ -76,7 +77,7 @@ public class OI {
 		cargoShoot.whenPressed(new ShootCargoHead());
 		cargoIntake.whenPressed(new IntakeOverRoller());
 		
-
+		
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
     	//logi.dPad.down.whenPressed(new IntakeRetract());

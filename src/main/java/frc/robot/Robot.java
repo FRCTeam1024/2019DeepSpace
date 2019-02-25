@@ -34,9 +34,11 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 import frc.robot.subsystems.*;
-import frc.robot.commands.intake_commands.TiltWithJoystick;
+import frc.robot.commands.*;
+import frc.robot.commands.intake_commands.*;
 import frc.robot.commands.limelight_commands.*;
 import frc.robot.commands.drivetrain_commands.*;
+import frc.robot.commands.lift_commands.*;
 import frc.robot.logging.*;
 
 public class Robot extends TimedRobot {
@@ -50,11 +52,9 @@ public class Robot extends TimedRobot {
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
 	Command m_autonomousCommand;
-	Command turnTargetCommand;
-	Command driveTargetCommand;
-	Command driveCommand;
 	Command driveWithJoysticks = new DriveWithJoysticks();
 	Command	tiltWithJoysticks = new TiltWithJoystick();
+	Command liftWithJoysticks = new MoveLiftWithJoysticks();
 
 	SendableChooser<String> autoChooser = new SendableChooser<String>();
 
@@ -254,6 +254,7 @@ public class Robot extends TimedRobot {
 		
 		driveWithJoysticks.start();
 		tiltWithJoysticks.start();
+		liftWithJoysticks.start();
 	}
 	
 	@Override
