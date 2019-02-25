@@ -49,7 +49,7 @@ public class Drivetrain extends Subsystem {
 	private TalonSRX frontRight = new TalonSRX(RobotMap.FRONT_RIGHT_MOTOR_PORT);
 	private TalonSRX middleRight = new TalonSRX(RobotMap.MIDDLE_RIGHT_MOTOR_PORT);
 	private TalonSRX rearRight = new TalonSRX(RobotMap.REAR_RIGHT_MOTOR_PORT);
-	private Solenoid shifter = new Solenoid(RobotMap.SHIFTER_PORT);
+	private Solenoid shifter = new Solenoid(Constants.CHASSIS_PCM_PORT,RobotMap.SHIFTER_PORT);
 
 	//private AHRS navx;
 	private AnalogGyro navx;
@@ -180,8 +180,8 @@ public class Drivetrain extends Subsystem {
 	 * @param rightPower value from -1.0 to 1.0
 	 */
 	public void drive(double leftPower, double rightPower) {
-		frontLeft.set(ControlMode.PercentOutput, -leftPower);
-		frontRight.set(ControlMode.PercentOutput, rightPower);
+		frontLeft.set(ControlMode.PercentOutput, leftPower);
+		frontRight.set(ControlMode.PercentOutput, -rightPower);
 	}
 
 

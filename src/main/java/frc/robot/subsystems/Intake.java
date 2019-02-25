@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-
+import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -32,12 +32,13 @@ public class Intake extends Subsystem {
   private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
   
-  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(12, 1, 2);
-  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(12, 3, 4);
+  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, 2, 3);
+  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, 4, 5);
 
-  private Solenoid beakExtender = new Solenoid(RobotMap.BEAK_EXTENDER_PORT);
-  private Solenoid beakOpener = new Solenoid(RobotMap.BEAK_OPENER_PORT);
-  private Solenoid overRollerExtender = new Solenoid(RobotMap.OVER_ROLLER_EXTENDER_PORT);
+  private Solenoid beakExtender = new Solenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.BEAK_EXTENDER_PORT);
+  private Solenoid beakOpener = new Solenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.BEAK_OPENER_PORT);
+  
+  private Solenoid overRollerExtender = new Solenoid(Constants.CHASSIS_PCM_PORT, RobotMap.OVER_ROLLER_EXTENDER_PORT);
 
   private boolean beakOpenState = false;  
   private boolean beakExtendState = false;
@@ -45,8 +46,7 @@ public class Intake extends Subsystem {
   
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new CargoWithJoystick());
   }
 
   public void cargoheadSpeed(double Power) {
@@ -81,7 +81,7 @@ public class Intake extends Subsystem {
 		return overRollerState;
 	}
 
-  public void beakEnxtend() {
+  public void beakExtend() {
     beakExtender.set(true);
     beakExtendState = true;
 	}

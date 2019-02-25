@@ -24,7 +24,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
-public class Hab extends Subsystem {
+public class HAB extends Subsystem {
   //change ports later
 
   // private Solenoid habClimb = new Solenoid(RobotMap.HAB_CLIMB_PORT);

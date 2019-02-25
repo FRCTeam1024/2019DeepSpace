@@ -23,12 +23,13 @@ public class IntakeOverRoller extends Command {
   @Override
   protected void initialize() {
   }
+  
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.overRollerSpeed(0.7);
-    Timer.delay(1);
+    Robot.intake.overRollerSpeed(-0.7);
+    Timer.delay(.2);
     isFinished = true;
   }
 

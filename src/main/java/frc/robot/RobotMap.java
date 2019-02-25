@@ -32,18 +32,18 @@ public class RobotMap {
 	public static final int LIFT_MOTOR_2_PORT = 7;
 	
 	//Pnuematics:
-	public static final int INTAKE_SLIDE_PORT = 1;
-	public static final int SHIFTER_PORT = 2;
+	public static final int INTAKE_SLIDE_PORT = 2;
+	public static final int SHIFTER_PORT = 1;
 	public static final int AIRBAG_PORT = 3;
 	public static final int INTAKE_POS_PORT = 4;
 	public static final int LIFT_CLAMP_PORT = 5;
 	
-	public static final int OVER_ROLLER_EXTENDER_PORT = 7;
+	public static final int OVER_ROLLER_EXTENDER_PORT = 0;
 	public static final int HAB_RAMP_PORT = 8;
 	public static final int HAB_CLIMB_PORT = 9;
 
-	public static final int BEAK_OPENER_PORT = 5;
-	public static final int BEAK_EXTENDER_PORT = 6;
+	public static final int BEAK_OPENER_PORT = 1;
+	public static final int BEAK_EXTENDER_PORT = 0;
 
 	//I2C
 	public static final Port NAVX_PORT = Port.kMXP;
