@@ -68,13 +68,13 @@ public class Constants {
 	// Field Constants:
 	public static final double FIELD_WIDTH = 324.0; //324 on real field
 	public static final double FIELD_LENGTH = 648.0; //648 on real field
-	public static final double BACKWALL_TO_EDGE_SWITCH_DISTANCE = 140.0;
-	public static final double BACKWALL_TO_EDGE_SCALE_DISTANCE = 299.65;
-	public static final double BACKWALL_TO_MIDDLE_SWITCH_DISTANCE = 168.0;
-	public static final double BACKWALL_TO_MIDDLE_SCALE_DISTANCE = 324.0;
-	public static final double SIDEWALL_TO_SWITCH_DISTANCE = 59.0; // 85.25 on real field
-	public static final double SIDEWALL_TO_SCALE_DISTANCE = 71.57;
-	public static final double SIDEWALL_TO_PORTAL_EDGE = 30.0;
+	// public static final double BACKWALL_TO_EDGE_SWITCH_DISTANCE = 140.0;
+	// public static final double BACKWALL_TO_EDGE_SCALE_DISTANCE = 299.65;
+	// public static final double BACKWALL_TO_MIDDLE_SWITCH_DISTANCE = 168.0;
+	// public static final double BACKWALL_TO_MIDDLE_SCALE_DISTANCE = 324.0;
+	// public static final double SIDEWALL_TO_SWITCH_DISTANCE = 59.0; // 85.25 on real field
+	// public static final double SIDEWALL_TO_SCALE_DISTANCE = 71.57;
+	// public static final double SIDEWALL_TO_PORTAL_EDGE = 30.0;
 	
 	public static final double LOWEST_HEIGHT = 0;
 	public static final double INTAKE_HEIGHT = -200;
@@ -87,27 +87,28 @@ public class Constants {
 
 	// Controller Constants:
 	
-	public static final int LEFT_JOYSTICK_PORT = 0;
-	public static final int RIGHT_JOYSTICK_PORT = 1;
+	public static final int LEFT_JOYSTICK_PORT = 1;
+	public static final int RIGHT_JOYSTICK_PORT = 0;
 	public static final int LOGITECH_JOYSTICK_PORT = 2;
 	public static final int BUTTON_PANNEL_PORT = 3;
 	
 	//public static final int LEFT_JOYSTICK_TRIGGER = 0;
 	public static final int LIFT_STICK_AXIS = 3;
+	public static final int CARGO_STICK_AXIS = 1;
 	public static final int INTAKE_STICK_AXIS_Y = 1;
 	public static final int INTAKE_STICK_AXIS_X = 0;
-	public static final int SHIFT_HIGH_BUTTON = 7;
+	public static final int SHIFT_HIGH_BUTTON = 5;
 	public static final int SHIFT_LOW_BUTTON = 10;
 	
 	public static final int HAB_RETRACT = 1;
 	public static final int HAB_EXTEND = 2;
 	public static final int CARGO_SHIP_HEIGHT = 3;
-	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 7;
+	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
 	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
-	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 9;
-	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 4;
+	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 7;
+	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
 	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
-	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 6;
+	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
 	public static final int BEAK_EXTEND = 7;
 	public static final int BEAK_RETRACT = 8;
 	public static final int BEAK_OPEN = 6;
@@ -116,7 +117,9 @@ public class Constants {
 	public static final int OVEROLLER_EXTEND = 13;
 	public static final int CARGO_INTAKE = 15;
 	public static final int CARGO_SHOOT = 12;
-
+	public static final int FLIP_ROBOT_DIRECTION = 8;
+	public static final int CARGOHEAD_PCM_PORT = 20;
+	public static final int CHASSIS_PCM_PORT = 12;
 	// public static final int INTAKE_SLIDE_IN_BUTTON = 8;
 	// public static final int INTAKE_SLIDE_OUT_BUTTON = 6;
 

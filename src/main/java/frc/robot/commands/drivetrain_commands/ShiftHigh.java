@@ -5,18 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.hatch_commands;
+package frc.robot.commands.drivetrain_commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
 
-public class ExtendBeak extends Command {
+public class ShiftHigh extends Command {
 
-  private boolean isFinished = false;
-
-  public ExtendBeak() {
-    requires(Robot.intake);
+  public ShiftHigh() {
+   requires(Robot.drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -27,15 +25,13 @@ public class ExtendBeak extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.intake.beakExtend();
-      Timer.delay(.7);
-      isFinished = true;
+    Robot.drivetrain.shiftHigh();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return true;
   }
 
   // Called once after isFinished returns true

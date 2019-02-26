@@ -5,28 +5,41 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
-import frc.robot.Robot;
-import edu.wpi.first.wpilibj.command.Command;
+package frc.robot.commands.intake_commands.cargo_commands;
 
-public class DriveWithJoysticks extends Command {
-  public DriveWithJoysticks() {
-    requires(Robot.drivetrain);
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.*;
+
+public class CargoWithJoystick extends Command {
+  public CargoWithJoystick() {
+    requires(Robot.intake);
   }
+
+  // Called just before this Command runs the first time
+  @Override
   protected void initialize() {
   }
 
+  // Called repeatedly when this Command is scheduled to run
+  @Override
   protected void execute() {
-    Robot.drivetrain.drive(Robot.oi.lJoy.getY(), Robot.oi.rJoy.getY());
+    Robot.intake.cargoheadSpeed(Robot.oi.logi.getRawAxis(Constants.CARGO_STICK_AXIS));
   }
 
+  // Make this return true when this Command no longer needs to run execute()
+  @Override
   protected boolean isFinished() {
-      return false;
+    return false;
   }
 
+  // Called once after isFinished returns true
+  @Override
   protected void end() {
   }
 
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
+  @Override
   protected void interrupted() {
   }
 }

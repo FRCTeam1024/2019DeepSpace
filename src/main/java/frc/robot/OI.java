@@ -16,6 +16,7 @@ import frc.robot.commands.intake_commands.cargo_commands.*;
 import frc.robot.commands.intake_commands.hatch_commands.*;
 import frc.robot.commands.limelight_commands.*;
 import frc.robot.commands.lift_commands.*;
+import frc.robot.commands.drivetrain_commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,16 +40,14 @@ public class OI {
 	JoystickButton beakClose = new JoystickButton(lJoy, Constants.BEAK_CLOSE);
 	JoystickButton overollerRetract = new JoystickButton(lJoy, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(lJoy, Constants.OVEROLLER_EXTEND);
-	JoystickButton cargoShoot = new JoystickButton(lJoy, Constants.CARGO_SHOOT);
-	JoystickButton cargoIntake = new JoystickButton(lJoy, Constants.CARGO_INTAKE);
+	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_SHOOT);
+	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_INTAKE);
+	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
 
-
-	JoystickButton leftShiftHigh      = new JoystickButton(lJoy, Constants.SHIFT_HIGH_BUTTON);
-	JoystickButton leftShiftLow       = new JoystickButton(lJoy, Constants.SHIFT_LOW_BUTTON);
 	//JoystickButton turnToCenterLimelight = new JoystickButton(usbJoy, Constants.TURN_CENTER_LIMELIGHT_BUTTON);
 	//JoystickButton backToDriveWithJoystick = new JoystickButton(lJoy, Constants.LEFT_JOYSTICK_TRIGGER);
-	JoystickButton rightShiftHigh     = new JoystickButton(rJoy, Constants.SHIFT_HIGH_BUTTON);
-	JoystickButton rightShiftLow      = new JoystickButton(rJoy, Constants.SHIFT_LOW_BUTTON);
+	JoystickButton shiftHigh     = new JoystickButton(lJoy, Constants.SHIFT_HIGH_BUTTON);
+	JoystickButton shiftLow      = new JoystickButton(lJoy, Constants.SHIFT_LOW_BUTTON);
  
 	//JoystickButton intakeStartAcquire = new JoystickButton(logi, Constants.INTAKE_START_ACQUIRE);
 	//JoystickButton switchHeight   	  = new JoystickButton(logi, Constants.REACH_SWITCH_HEIGHT);
@@ -59,6 +58,8 @@ public class OI {
 	
 	public OI () {
 		
+
+
 		liftCargoShip.whenActive(new LiftCargoShip());
 		liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
 		liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
@@ -74,9 +75,10 @@ public class OI {
 
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
-		cargoShoot.whenPressed(new ShootCargoHead());
-		cargoIntake.whenPressed(new IntakeOverRoller());
-		
+		cargoForward.whileHeld(new ShootCargoHead());
+		cargoBackward.whileHeld(new IntakeCargoHead());
+
+		flipDirection.whenPressed(new FlipDirection());
 		
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());

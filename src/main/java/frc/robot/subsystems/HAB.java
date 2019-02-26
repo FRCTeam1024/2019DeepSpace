@@ -24,11 +24,11 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
-public class Hab extends Subsystem {
+public class HAB extends Subsystem {
   //change ports later
 
-  private Solenoid habClimb = new Solenoid(RobotMap.HAB_CLIMB_PORT);
-  private Solenoid habRamp = new Solenoid(RobotMap.HAB_RAMP_PORT);
+  // private Solenoid habClimb = new Solenoid(RobotMap.HAB_CLIMB_PORT);
+  // private Solenoid habRamp = new Solenoid(RobotMap.HAB_RAMP_PORT);
 
   private boolean habClimbState = true;
   private boolean habRampState = true;
@@ -40,12 +40,12 @@ public class Hab extends Subsystem {
   }
  
   public void habClimbUp() {
-    habClimb.set(true);
+    // habClimb.set(true);
     habClimbState = true;
 	}
 	
 	public void habClimbDown() {
-    habClimb.set(false);
+    // habClimb.set(false);
     habClimbState = false;
   }
   
@@ -54,12 +54,12 @@ public class Hab extends Subsystem {
   }
 
   public void habRampUp() {
-    habRamp.set(true);
+    // habRamp.set(true);
     habRampState = true;
 	}
 	
 	public void habRampDown() {
-    habRamp.set(false);
+    // habRamp.set(false);
     habRampState = false;
   }
 

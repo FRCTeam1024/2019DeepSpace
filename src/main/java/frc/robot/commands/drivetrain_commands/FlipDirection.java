@@ -5,18 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.hatch_commands;
+package frc.robot.commands.drivetrain_commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.*;
+import frc.robot.Robot;
+import frc.robot.OI;
 
-public class ExtendBeak extends Command {
-
-  private boolean isFinished = false;
-
-  public ExtendBeak() {
-    requires(Robot.intake);
+public class FlipDirection extends Command {
+  public boolean isFinished = false;
+  // public boolean direction = true;
+  // public double driveLeft;
+  // public double driveRight;
+  public FlipDirection() {
+   
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.drivetrain);
+    
   }
 
   // Called just before this Command runs the first time
@@ -27,11 +32,9 @@ public class ExtendBeak extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.intake.beakExtend();
-      Timer.delay(.7);
-      isFinished = true;
+    Robot.DRIVE_FORWARD = !Robot.DRIVE_FORWARD;
+    isFinished = true;
   }
-
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {

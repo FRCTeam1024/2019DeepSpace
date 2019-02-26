@@ -34,27 +34,32 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 import frc.robot.subsystems.*;
-import frc.robot.commands.*;
-import frc.robot.commands.intake_commands.*;
+import frc.robot.commands.intake_commands.TiltWithJoystick;
+import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
+import frc.robot.commands.lift_commands.MoveLiftWithJoysticks;
 import frc.robot.commands.limelight_commands.*;
+
 import frc.robot.commands.drivetrain_commands.*;
-import frc.robot.commands.lift_commands.*;
+import frc.robot.commands.intake_commands.hatch_commands.*;
 import frc.robot.logging.*;
 
 public class Robot extends TimedRobot {
 
 	public static Drivetrain drivetrain = new Drivetrain();
-  	public static OI oi = new OI();
   	public static Lift lift = new Lift();
   	public static Intake intake = new Intake();
-  	public static Hab hab = new Hab();
+  	public static HAB hab = new HAB();
   	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
+	public static OI oi = new OI();
+  	
 	Command m_autonomousCommand;
 	Command driveWithJoysticks = new DriveWithJoysticks();
 	Command	tiltWithJoysticks = new TiltWithJoystick();
 	Command liftWithJoysticks = new MoveLiftWithJoysticks();
+
+	public static boolean DRIVE_FORWARD = true;
 
 	SendableChooser<String> autoChooser = new SendableChooser<String>();
 
@@ -146,6 +151,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("DPAD Value", Robot.oi.logi.getPOV());
 		//intake.setCubeLight();
 		//drivetrain.outputToSmartDashboard();
 		//lift.outputToSmartDashboard();
@@ -236,7 +242,6 @@ public class Robot extends TimedRobot {
 		//intake.cubeLight.set(Relay.Value.kForward);
 		
 		//driveTargetCommand = new DriveToTargetStraight(0.15, 0.15);
-		
 	}
 	
 	@Override
@@ -251,10 +256,11 @@ public class Robot extends TimedRobot {
 		//intake.outputToSmartDashboard();
 		//intake.cubeLight.set(Relay.Value.kForward);
 		//turnTargetCommand.start();
-		
-		driveWithJoysticks.start();
-		tiltWithJoysticks.start();
-		liftWithJoysticks.start();
+
+		new DriveWithJoysticks();
+		new MoveLiftWithJoysticks();
+		new CargoWithJoystick();
+
 	}
 	
 	@Override

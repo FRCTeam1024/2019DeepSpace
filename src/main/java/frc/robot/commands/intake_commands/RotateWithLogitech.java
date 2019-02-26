@@ -5,17 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.hatch_commands;
+package frc.robot.commands.intake_commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.*;
+import frc.robot.Robot;
 
-public class ExtendBeak extends Command {
+public class RotateWithLogitech extends Command {
 
-  private boolean isFinished = false;
-
-  public ExtendBeak() {
+  public RotateWithLogitech() {
     requires(Robot.intake);
   }
 
@@ -27,15 +24,23 @@ public class ExtendBeak extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.intake.beakExtend();
-      Timer.delay(.7);
-      isFinished = true;
+    rotateHead();
   }
 
+  private void rotateHead(){
+    if(Robot.oi.logi.getPOV() == 90){
+      Robot.intake.rotateRight();;
+    }else if(Robot.oi.logi.getPOV() == 270){
+      Robot.intake.rotateLeft();;
+    }else if(Robot.oi.logi.getPOV() == 180){
+      Robot.intake.rotateNeutral();;
+    }
+  }
+  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return false;
   }
 
   // Called once after isFinished returns true

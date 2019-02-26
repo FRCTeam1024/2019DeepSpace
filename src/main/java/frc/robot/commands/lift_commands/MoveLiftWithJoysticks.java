@@ -22,18 +22,18 @@ public class MoveLiftWithJoysticks extends Command {
     	if(Robot.lift.getCommandedOutput() > 0.0) {
     			
     		if (Robot.lift.getLiftEncoderValue() < 25000 /*&& !Robot.oi.getOverrideButton()*/) {
-        		Robot.lift.configMaxOutputs(0.5);
+        		Robot.lift.configMaxOutputs(1.00);
     		} else {
-    			Robot.lift.configMaxOutputs(0.10);
+    			Robot.lift.configMaxOutputs(0.15);
     		}
     	} else if(Robot.lift.getCommandedOutput() < 0.0) {
     		if (Robot.lift.getLiftEncoderValue() > 3000 /*&& !Robot.oi.getOverrideButton()*/) {
-    			Robot.lift.configMaxOutputs(0.5);
+    			Robot.lift.configMaxOutputs(1.00);
     		} else {
-    			Robot.lift.configMaxOutputs(0.10);
+    			Robot.lift.configMaxOutputs(0.15);
     		}
     	} else {
-    		Robot.lift.configMaxOutputs(0.5);
+    		Robot.lift.configMaxOutputs(1.00);
     	}
     	Robot.lift.moveCarriage(Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS));
 	}

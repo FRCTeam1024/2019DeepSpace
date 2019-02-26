@@ -22,9 +22,7 @@ public class Sensors {
 
     private I2C ColorSensor;
     private ByteBuffer buf = ByteBuffer.allocate(5);
-    private DigitalInput limitSwitchTop = new DigitalInput(RobotMap.LIMIT_SWITCH_TOP);
-    private DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.LIMIT_SWITCH_BOTTOM);
-
+    
 public void startColorSensor(){
     ColorSensor = new I2C(RobotMap.COLOR_SENSOR_PORT, 0x39);
     ColorSensor.write(0x00, 0b00000011);
@@ -55,14 +53,6 @@ public void printValue(){
     SmartDashboard.putNumber("Green Value", green());
     blue();
     SmartDashboard.putNumber("Blue Value", blue());
-}
-
-public boolean getLimitSwitchBottom(){
-  return limitSwitchBottom.get();
-}
-
-public boolean getLimitSwitchTop(){
-  return limitSwitchTop.get();
 }
 
 }
