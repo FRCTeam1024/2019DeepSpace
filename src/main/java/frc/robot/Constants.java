@@ -126,6 +126,7 @@ public class Constants {
 	public static final int RAMP_EXTEND = 8;
 	public static final int RAMP_RETRACT = 6;
 
+	public static final int FLIP_ROBOT_DIRECTION = 8;
 	public static final int CARGOHEAD_PCM_PORT = 20;
 	public static final int CHASSIS_PCM_PORT = 12;
 	// public static final int INTAKE_SLIDE_IN_BUTTON = 8;

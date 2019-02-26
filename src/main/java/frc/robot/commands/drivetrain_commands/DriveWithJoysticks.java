@@ -10,6 +10,8 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveWithJoysticks extends Command {
+  public double driveLeft;
+  public double driveRight;
   public DriveWithJoysticks() {
     requires(Robot.drivetrain);
   }
@@ -17,7 +19,14 @@ public class DriveWithJoysticks extends Command {
   }
 
   protected void execute() {
-    Robot.drivetrain.drive(Robot.oi.rJoy.getY(), Robot.oi.lJoy.getY());
+    if(Robot.DRIVE_FORWARD){
+      driveLeft = Robot.oi.lJoy.getY();
+      driveRight = Robot.oi.rJoy.getY();
+    } else {
+      driveLeft = -Robot.oi.rJoy.getY();
+      driveRight = -Robot.oi.lJoy.getY();
+    }
+    Robot.drivetrain.drive(driveRight, driveLeft);
   }
 
   protected boolean isFinished() {

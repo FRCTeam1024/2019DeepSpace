@@ -13,9 +13,11 @@ public class MoveLiftWithJoysticks extends Command {
     	requires(Robot.lift);
     }
 
+	@Override
     protected void initialize() {
-    }
-
+	}
+	
+	@Override
     protected void execute() {
     	if(Robot.lift.getCommandedOutput() > 0.0) {
     			
@@ -34,14 +36,18 @@ public class MoveLiftWithJoysticks extends Command {
     		Robot.lift.configMaxOutputs(1.00);
     	}
     	Robot.lift.moveCarriage(Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS));
-    }
-    protected boolean isFinished() {
-        return false;
-    }
+	}
 
+	@Override
+	protected boolean isFinished() {
+		return false;
+	}
+	
+	@Override
     protected void end() {
-    }
-
+	}
+	
+	@Override
     protected void interrupted() {
     }
 }

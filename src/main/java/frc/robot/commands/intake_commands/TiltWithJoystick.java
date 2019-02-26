@@ -30,11 +30,11 @@ public class TiltWithJoystick extends Command {
 
   private void rotateHead(){
     if(Robot.oi.usbJoy.getX() > .5){
-      Robot.intake.rotateRight();;
+      Robot.intake.rotateRight();
     }else if(Robot.oi.usbJoy.getX() < .5){
-      Robot.intake.rotateLeft();;
+      Robot.intake.rotateLeft();
     }else{
-      Robot.intake.rotateNeutral();;
+      Robot.intake.rotateNeutral();
     }
   }
 
@@ -42,9 +42,9 @@ public class TiltWithJoystick extends Command {
     if(Robot.oi.usbJoy.getY() > .5){
       Robot.intake.tiltUp();
     }else if(Robot.oi.usbJoy.getY() < .5){
-      Robot.intake.tiltDown();;
+      Robot.intake.tiltDown();
     }else{
-      Robot.intake.tiltNeutral();;
+      Robot.intake.tiltNeutral();
     }
   }
   

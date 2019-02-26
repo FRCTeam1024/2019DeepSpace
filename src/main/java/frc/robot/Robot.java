@@ -38,6 +38,7 @@ import frc.robot.commands.intake_commands.TiltWithJoystick;
 import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
 import frc.robot.commands.lift_commands.MoveLiftWithJoysticks;
 import frc.robot.commands.limelight_commands.*;
+
 import frc.robot.commands.drivetrain_commands.*;
 import frc.robot.commands.intake_commands.hatch_commands.*;
 import frc.robot.logging.*;
@@ -53,11 +54,11 @@ public class Robot extends TimedRobot {
 	public static OI oi = new OI();
   	
 	Command m_autonomousCommand;
-	Command turnTargetCommand;
-	Command driveTargetCommand;
-	Command driveCommand;
 	Command driveWithJoysticks = new DriveWithJoysticks();
 	Command	tiltWithJoysticks = new TiltWithJoystick();
+	Command liftWithJoysticks = new MoveLiftWithJoysticks();
+
+	public static boolean DRIVE_FORWARD = true;
 
 	SendableChooser<String> autoChooser = new SendableChooser<String>();
 

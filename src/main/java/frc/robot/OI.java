@@ -53,6 +53,8 @@ public class OI {
 	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
+	
+	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
 
 	JoystickButton tiltUp = new JoystickButton(logi, Constants.TILT_UP);
 	JoystickButton tiltDown = new JoystickButton(logi, Constants.TILT_DOWN);
@@ -70,6 +72,9 @@ public class OI {
 	
 	
 	public OI () {
+		
+
+
 		liftCargoShip.whenActive(new LiftCargoShip());
 		liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
 		liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
@@ -77,7 +82,7 @@ public class OI {
 		liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOne());
 		liftRocketHatchLevelTwo.whenActive(new LiftRocketHatchLevelTwo());
 		liftRocketHatchLevelThree.whenActive(new LiftRocketHatchLevelThree());
-
+		
 		beakExtend.whenPressed(new ExtendBeak());
 		beakRetract.whenPressed(new RetractBeak());
 		beakOpen.whenPressed(new OpenBeak());
@@ -98,6 +103,8 @@ public class OI {
 		shiftHigh.whenPressed(new ShiftHigh());
 		shiftLow.whenPressed(new ShiftLow());
 
+		flipDirection.whenPressed(new FlipDirection());
+		
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
 		//logi.dPad.up.whenPressed(new IntakeExtend());
