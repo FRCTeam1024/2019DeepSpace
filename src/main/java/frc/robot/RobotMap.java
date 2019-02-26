@@ -38,8 +38,13 @@ public class RobotMap {
 	public static final int INTAKE_POS_PORT = 4;
 	public static final int LIFT_CLAMP_PORT = 5;
 	
+	public static final int DOUBLE_ROTATE_A = 2;
+	public static final int DOUBLE_ROTATE_B = 3;
+	public static final int DOUBLE_TILT_A = 4;
+	public static final int DOUBLE_TILT_B = 5;
+
 	public static final int OVER_ROLLER_EXTENDER_PORT = 0;
-	public static final int HAB_RAMP_PORT = 8;
+	public static final int HAB_RAMP_PORT = 1;
 	public static final int HAB_CLIMB_PORT = 9;
 
 	public static final int BEAK_OPENER_PORT = 1;

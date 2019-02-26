@@ -10,9 +10,10 @@ package frc.robot.commands.intake_commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class RotateWithLogitech extends Command {
+public class TiltHeadUp extends Command {
+  private boolean isFinished = false;
 
-  public RotateWithLogitech() {
+  public TiltHeadUp() {
     requires(Robot.intake);
   }
 
@@ -24,28 +25,14 @@ public class RotateWithLogitech extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.oi.logi.getPOV() == 90){
-      Robot.intake.rotateRight();;
-    }else if(Robot.oi.logi.getPOV() == 270){
-      Robot.intake.rotateLeft();;
-    }else if(Robot.oi.logi.getPOV() == 180){
-      Robot.intake.rotateNeutral();;
-    }
-
-    if(Robot.oi.logi.getRawButton(2)){
-      Robot.intake.tiltDown();
-    }else if(Robot.oi.logi.getRawButton(4)){
-      Robot.intake.tiltUp();
-    }else if(Robot.oi.logi.getRawButton(3)){
-      Robot.intake.tiltNeutral();
-    }
+    Robot.intake.tiltUp();
+    isFinished = true;
   }
 
-  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isFinished;
   }
 
   // Called once after isFinished returns true

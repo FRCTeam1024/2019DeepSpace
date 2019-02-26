@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.intake_commands.RotateWithLogitech;
 import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -32,8 +33,8 @@ public class Intake extends Subsystem {
   private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
   
-  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, 2, 3);
-  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, 4, 5);
+  private DoubleSolenoid openCenterRotate = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_ROTATE_A, RobotMap.DOUBLE_ROTATE_B);
+  private DoubleSolenoid openCenterTilt = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_TILT_A, RobotMap.DOUBLE_TILT_B);
 
   private Solenoid beakExtender = new Solenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.BEAK_EXTENDER_PORT);
   private Solenoid beakOpener = new Solenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.BEAK_OPENER_PORT);

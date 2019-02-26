@@ -50,7 +50,6 @@ public class Robot extends TimedRobot {
   	public static HAB hab = new HAB();
   	public static Sensors sensors = new Sensors();
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
-	
 	public static OI oi = new OI();
   	
 	Command m_autonomousCommand;
@@ -255,10 +254,6 @@ public class Robot extends TimedRobot {
 		//intake.outputToSmartDashboard();
 		//intake.cubeLight.set(Relay.Value.kForward);
 		//turnTargetCommand.start();
-
-		new DriveWithJoysticks();
-		new MoveLiftWithJoysticks();
-		new CargoWithJoystick();
 
 	}
 	

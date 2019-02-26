@@ -100,8 +100,6 @@ public class Constants {
 	public static final int SHIFT_HIGH_BUTTON = 5;
 	public static final int SHIFT_LOW_BUTTON = 10;
 	
-	public static final int HAB_RETRACT = 1;
-	public static final int HAB_EXTEND = 2;
 	public static final int CARGO_SHIP_HEIGHT = 3;
 	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
 	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
@@ -109,14 +107,25 @@ public class Constants {
 	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
 	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
 	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
+
 	public static final int BEAK_EXTEND = 7;
 	public static final int BEAK_RETRACT = 8;
 	public static final int BEAK_OPEN = 6;
 	public static final int BEAK_CLOSE = 9;
+	public static final int CARGO_OUT_RIGHT = 11;
+	public static final int CARGO_OUT_LEFT = 12;
+	public static final int TILT_UP = 4;
+	public static final int TILT_DOWN = 2;
+	public static final int TILT_NEUTRAL = 3;
+
 	public static final int OVEROLLER_RETRACT = 14;
 	public static final int OVEROLLER_EXTEND = 13;
-	public static final int CARGO_INTAKE = 15;
-	public static final int CARGO_SHOOT = 12;
+	public static final int OVEROLLER_IN = 15;
+	public static final int OVEROLLER_OUT = 16;
+
+	public static final int RAMP_EXTEND = 8;
+	public static final int RAMP_RETRACT = 6;
+
 	public static final int CARGOHEAD_PCM_PORT = 20;
 	public static final int CHASSIS_PCM_PORT = 12;
 	// public static final int INTAKE_SLIDE_IN_BUTTON = 8;

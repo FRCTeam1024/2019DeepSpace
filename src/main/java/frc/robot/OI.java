@@ -12,11 +12,18 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
+import frc.robot.commands.intake_commands.RotateHeadLeft;
+import frc.robot.commands.intake_commands.RotateHeadNeutral;
+import frc.robot.commands.intake_commands.RotateHeadRight;
+import frc.robot.commands.intake_commands.TiltHeadDown;
+import frc.robot.commands.intake_commands.TiltHeadUp;
+import frc.robot.commands.intake_commands.TiltNeutral;
 import frc.robot.commands.intake_commands.cargo_commands.*;
 import frc.robot.commands.intake_commands.hatch_commands.*;
 import frc.robot.commands.limelight_commands.*;
 import frc.robot.commands.lift_commands.*;
 import frc.robot.commands.drivetrain_commands.*;
+import frc.robot.commands.hab_commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,10 +47,16 @@ public class OI {
 	JoystickButton beakClose = new JoystickButton(lJoy, Constants.BEAK_CLOSE);
 	JoystickButton overollerRetract = new JoystickButton(lJoy, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(lJoy, Constants.OVEROLLER_EXTEND);
-	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_SHOOT);
-	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_INTAKE);
+	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
+	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
+	JoystickButton overollerIn = new JoystickButton(lJoy, Constants.OVEROLLER_IN);
+	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
+	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
+	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 
-
+	JoystickButton tiltUp = new JoystickButton(logi, Constants.TILT_UP);
+	JoystickButton tiltDown = new JoystickButton(logi, Constants.TILT_DOWN);
+	JoystickButton tiltNeutral = new JoystickButton(logi, Constants.TILT_NEUTRAL);
 	//JoystickButton turnToCenterLimelight = new JoystickButton(usbJoy, Constants.TURN_CENTER_LIMELIGHT_BUTTON);
 	//JoystickButton backToDriveWithJoystick = new JoystickButton(lJoy, Constants.LEFT_JOYSTICK_TRIGGER);
 	JoystickButton shiftHigh     = new JoystickButton(lJoy, Constants.SHIFT_HIGH_BUTTON);
@@ -72,21 +85,28 @@ public class OI {
 
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
+		overollerIn.whileHeld(new IntakeOverRoller());
+		overollerOut.whileHeld(new ReverseOverRoller());
 		cargoForward.whileHeld(new ShootCargoHead());
 		cargoBackward.whileHeld(new IntakeCargoHead());
+		tiltDown.whenPressed(new TiltHeadDown());
+		tiltUp.whenPressed(new TiltHeadUp());
+		tiltNeutral.whenPressed(new TiltNeutral());
 		
+		rampExtend.whenPressed(new ExtendRamp());
+		rampRetract.whenPressed(new RetractRamp());
 		shiftHigh.whenPressed(new ShiftHigh());
 		shiftLow.whenPressed(new ShiftLow());
 
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
-    	//logi.dPad.down.whenPressed(new IntakeRetract());
 		//logi.dPad.up.whenPressed(new IntakeExtend());
-		//logi.dPad.left.whenPressed(new IntakeNarrow());
-		//logi.dPad.right.whenPressed(new IntakeFlat());
+		logi.dPad.down.whenPressed(new RotateHeadNeutral());
+		logi.dPad.left.whenPressed(new RotateHeadLeft());
+		logi.dPad.right.whenPressed(new RotateHeadRight());
 		// logi.dPad.upLeft.whenPressed(new IntakeExtendNarrow());
 		// logi.dPad.upRight.whenPressed(new IntakeExtendFlat());
-	//	logi.a.whenPressed(new TurnToTarget());
+		//	logi.a.whenPressed(new TurnToTarget());
 		//turnToCenterLimelight.whenActive(new TurnToCenterLimelight());
 	}
 }

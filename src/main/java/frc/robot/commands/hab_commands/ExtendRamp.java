@@ -5,15 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands;
+package frc.robot.commands.hab_commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class RotateWithLogitech extends Command {
+public class ExtendRamp extends Command {
+  public boolean isFinished = true;
 
-  public RotateWithLogitech() {
-    requires(Robot.intake);
+  public ExtendRamp() {
+    requires(Robot.hab);
   }
 
   // Called just before this Command runs the first time
@@ -24,28 +26,15 @@ public class RotateWithLogitech extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.oi.logi.getPOV() == 90){
-      Robot.intake.rotateRight();;
-    }else if(Robot.oi.logi.getPOV() == 270){
-      Robot.intake.rotateLeft();;
-    }else if(Robot.oi.logi.getPOV() == 180){
-      Robot.intake.rotateNeutral();;
-    }
-
-    if(Robot.oi.logi.getRawButton(2)){
-      Robot.intake.tiltDown();
-    }else if(Robot.oi.logi.getRawButton(4)){
-      Robot.intake.tiltUp();
-    }else if(Robot.oi.logi.getRawButton(3)){
-      Robot.intake.tiltNeutral();
-    }
+    Robot.hab.habRampDown();
+    Timer.delay(.3);
+    isFinished = true;
   }
 
-  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isFinished;
   }
 
   // Called once after isFinished returns true
