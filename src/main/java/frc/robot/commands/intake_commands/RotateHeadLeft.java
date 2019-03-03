@@ -7,14 +7,20 @@
 
 package frc.robot.commands.intake_commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class RotateHeadLeft extends Command {
   private boolean isFinished = false;
+  double delay = 0.0;
 
   public RotateHeadLeft() {
-    requires(Robot.intake);
+    //requires(Robot.intake);
+  }
+
+  public RotateHeadLeft(double delay) {
+    this.delay = delay;
   }
 
   // Called just before this Command runs the first time
@@ -26,6 +32,9 @@ public class RotateHeadLeft extends Command {
   @Override
   protected void execute() {
     Robot.intake.rotateLeft();
+    if(delay > 0.0) {
+      Timer.delay(delay);
+    }
     isFinished = true;
   }
 

@@ -5,19 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.cargo_commands;
+package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 import frc.robot.*;
-
-public class IntakeCargoHead extends Command {
-
-  private boolean isFinished = false;
-  private double speed;
-
-  public IntakeCargoHead(double speed) {
-    speed = this.speed;
+/**
+ * Add your docs here.
+ */
+public class CargoHeadSpeedTimed extends TimedCommand {
+  /**
+   * Add your docs here.
+   */
+  public CargoHeadSpeedTimed(double timeout) {
+    super(timeout);
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -28,21 +30,12 @@ public class IntakeCargoHead extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(speed);
-    Timer.delay(.2);
-    isFinished = true;
+    Robot.intake.cargoheadSpeed(-.50);
   }
 
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return isFinished;
-  }
-
-  // Called once after isFinished returns true
+  // Called once after timeout
   @Override
   protected void end() {
-    Robot.intake.cargoheadStop();
   }
 
   // Called when another command which requires one or more of the same

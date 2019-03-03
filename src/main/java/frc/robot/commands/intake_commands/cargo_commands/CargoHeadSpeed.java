@@ -11,13 +11,11 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
 
-public class IntakeCargoHead extends Command {
+public class CargoHeadSpeed extends Command {
 
   private boolean isFinished = false;
-  private double speed;
 
-  public IntakeCargoHead(double speed) {
-    speed = this.speed;
+  public CargoHeadSpeed() {
   }
 
   // Called just before this Command runs the first time
@@ -28,9 +26,8 @@ public class IntakeCargoHead extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(speed);
-    Timer.delay(.2);
-    isFinished = true;
+    Robot.intake.cargoheadSpeed(-.50);
+    // isFinished = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -42,7 +39,6 @@ public class IntakeCargoHead extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.cargoheadStop();
   }
 
   // Called when another command which requires one or more of the same

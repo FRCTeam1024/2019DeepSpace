@@ -108,10 +108,12 @@ public class Constants {
 	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
 	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
 
-	public static final int BEAK_EXTEND = 7;
-	public static final int BEAK_RETRACT = 8;
-	public static final int BEAK_OPEN = 6;
-	public static final int BEAK_CLOSE = 9;
+	public static final int BEAK_EXTEND = 2;
+	public static final int BEAK_RETRACT = 1;
+	public static final int BEAK_OPEN = 2;
+	public static final int BEAK_CLOSE = 1;
+	public static final int BEAK_TOGGLE = 1;
+
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
 	public static final int TILT_UP = 4;
@@ -122,6 +124,8 @@ public class Constants {
 	public static final int OVEROLLER_EXTEND = 13;
 	public static final int OVEROLLER_IN = 15;
 	public static final int OVEROLLER_OUT = 16;
+
+	public static final int CARGO_PICKUP = 5;
 
 	public static final int RAMP_EXTEND = 8;
 	public static final int RAMP_RETRACT = 6;

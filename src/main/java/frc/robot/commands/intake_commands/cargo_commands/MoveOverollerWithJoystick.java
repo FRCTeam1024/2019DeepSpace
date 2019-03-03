@@ -7,17 +7,15 @@
 
 package frc.robot.commands.intake_commands.cargo_commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.*;
+import frc.robot.Robot;
+import frc.robot.OI;
 
-public class IntakeCargoHead extends Command {
-
-  private boolean isFinished = false;
-  private double speed;
-
-  public IntakeCargoHead(double speed) {
-    speed = this.speed;
+public class MoveOverollerWithJoystick extends Command {
+  public MoveOverollerWithJoystick() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    //requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
@@ -28,21 +26,19 @@ public class IntakeCargoHead extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(speed);
-    Timer.delay(.2);
-    isFinished = true;
+    
+    Robot.intake.overRollerSpeed(Robot.oi.usbJoy.getY());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.cargoheadStop();
   }
 
   // Called when another command which requires one or more of the same

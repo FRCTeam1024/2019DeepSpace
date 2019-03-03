@@ -32,7 +32,6 @@ public class Intake extends Subsystem {
   private TalonSRX cargoHeadLeft = new TalonSRX(RobotMap.LEFT_CARGOHEAD_MOTOR_PORT);
   private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
-  
   private DoubleSolenoid openCenterRotate = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_ROTATE_A, RobotMap.DOUBLE_ROTATE_B);
   private DoubleSolenoid openCenterTilt = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_TILT_A, RobotMap.DOUBLE_TILT_B);
 
@@ -51,7 +50,7 @@ public class Intake extends Subsystem {
   }
 
   public void cargoheadSpeed(double Power) {
-		cargoHeadLeft.set(ControlMode.PercentOutput, -Power);
+		cargoHeadLeft.set(ControlMode.PercentOutput, Power);
 		cargoHeadRight.set(ControlMode.PercentOutput, Power);
 	}
 	
@@ -93,13 +92,13 @@ public class Intake extends Subsystem {
   }
   
   public void beakOpen() {
-    beakOpener.set(true);
-    beakOpenState = true;
+    beakOpener.set(false);
+    beakOpenState = false;
 	}
 	
 	public void beakClose() {
-    beakOpener.set(false);
-    beakOpenState = false;
+    beakOpener.set(true);
+    beakOpenState = true;
   }
   
   public boolean beakOpenState() {
@@ -126,12 +125,12 @@ public class Intake extends Subsystem {
 
   public void rotateRight(){
     //Not sure of direction yet
-    openCenterRotate.set(DoubleSolenoid.Value.kForward);
+    openCenterRotate.set(DoubleSolenoid.Value.kReverse);
   }
 
   public void rotateLeft(){
     //Not sure of direction yet
-    openCenterRotate.set(DoubleSolenoid.Value.kReverse);
+    openCenterRotate.set(DoubleSolenoid.Value.kForward);
   }
 
   public void rotateNeutral(){

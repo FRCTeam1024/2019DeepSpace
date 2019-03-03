@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
+import frc.robot.commands.commandgroups.CargoPickup;
 import frc.robot.commands.intake_commands.RotateHeadLeft;
 import frc.robot.commands.intake_commands.RotateHeadNeutral;
 import frc.robot.commands.intake_commands.RotateHeadRight;
@@ -41,14 +42,19 @@ public class OI {
 	JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
 	JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
 	JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP_HEIGHT);
+
 	JoystickButton beakExtend = new JoystickButton(lJoy, Constants.BEAK_EXTEND);
 	JoystickButton beakRetract = new JoystickButton(lJoy, Constants.BEAK_RETRACT);
-	JoystickButton beakOpen = new JoystickButton(lJoy, Constants.BEAK_OPEN);
-	JoystickButton beakClose = new JoystickButton(lJoy, Constants.BEAK_CLOSE);
+	JoystickButton beakOpen = new JoystickButton(rJoy, Constants.BEAK_OPEN);
+	JoystickButton beakClose = new JoystickButton(rJoy, Constants.BEAK_CLOSE);
+	JoystickButton beakToggle = new JoystickButton(rJoy, Constants.BEAK_TOGGLE);
+
 	JoystickButton overollerRetract = new JoystickButton(lJoy, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(lJoy, Constants.OVEROLLER_EXTEND);
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
 	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
+	JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
+	
 	JoystickButton overollerIn = new JoystickButton(lJoy, Constants.OVEROLLER_IN);
 	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
@@ -85,15 +91,20 @@ public class OI {
 		
 		beakExtend.whenPressed(new ExtendBeak());
 		beakRetract.whenPressed(new RetractBeak());
+		beakToggle.whenPressed(new ToggleBeak());
 		beakOpen.whenPressed(new OpenBeak());
 		beakClose.whenPressed(new CloseBeak());
 
+		//overollerIn.toggleWhenPressed(new OverRollerSpeed());
+		cargoPickup.whenPressed(new CargoPickup());
+		
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
-		overollerIn.whileHeld(new IntakeOverRoller());
+		overollerIn.whileHeld(new OverRollerSpeed());
 		overollerOut.whileHeld(new ReverseOverRoller());
+		
 		cargoForward.whileHeld(new ShootCargoHead());
-		cargoBackward.whileHeld(new IntakeCargoHead());
+		cargoBackward.whileHeld(new IntakeCargoHead(-.15));
 		tiltDown.whenPressed(new TiltHeadDown());
 		tiltUp.whenPressed(new TiltHeadUp());
 		tiltNeutral.whenPressed(new TiltNeutral());

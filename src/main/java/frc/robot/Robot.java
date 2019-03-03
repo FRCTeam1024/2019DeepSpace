@@ -35,7 +35,10 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.intake_commands.TiltWithJoystick;
+import frc.robot.commands.commandgroups.*;
+import frc.robot.commands.intake_commands.cargo_commands.CargoHeadSpeed;
 import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
+import frc.robot.commands.intake_commands.cargo_commands.ExtendOverRoller;
 import frc.robot.commands.lift_commands.MoveLiftWithJoysticks;
 import frc.robot.commands.limelight_commands.*;
 
@@ -54,6 +57,7 @@ public class Robot extends TimedRobot {
 	public static OI oi = new OI();
   	
 	Command m_autonomousCommand;
+	public static Command cargoPickup;
 	Command driveWithJoysticks = new DriveWithJoysticks();
 	Command	tiltWithJoysticks = new TiltWithJoystick();
 	Command liftWithJoysticks = new MoveLiftWithJoysticks();
@@ -72,14 +76,16 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
     
-		oi = new OI();
-		NetworkTableEntry tx;
-		NetworkTableEntry ty;
-		NetworkTableEntry ta;
-		initLogging();
-    	sensors.startColorSensor();
-    
+		
 		try {
+			oi = new OI();
+			NetworkTableEntry tx;
+			NetworkTableEntry ty;
+			NetworkTableEntry ta;
+			initLogging();
+			sensors.startColorSensor();
+
+		
 			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 			HttpCamera limelight = CameraServer.getInstance().addAxisCamera("http://10.10.24.11:5801/");
 		
@@ -94,38 +100,7 @@ public class Robot extends TimedRobot {
 
 	private void initLogging() {
 		HelixEvents.getInstance().startLogging();
-		// try {
-        //     File dir = Filesystem.getDeployDirectory();
-        //     String logFile = "NOTFOUND";
-        //     if (dir.isDirectory() && dir.exists()) {
-        //         logFile = dir.getAbsolutePath() + "/logging.properties";
-        //     } else {
-		// 		System.out.println("Directory not found.");
-		// 	}
-        //     System.out.println("**********  logConfig: " + logFile + "  *********************");
-        //     // BufferedReader br = new BufferedReader(new FileReader(logFile));
-        //     // String line = null;
-        //     // while ((line = br.readLine()) != null) {
-        //     //     System.out.println(line);
-        //     // }
-        //     // br.close();
-        //     FileInputStream configFile = new FileInputStream(logFile);
-        //     LogManager.getLogManager().readConfiguration(configFile);
-        // } catch (IOException ex) {
-        //     System.out.println("WARNING: Could not open configuration file");
-        //     System.out.println("WARNING: Logging not configured (console output only)");
-        // }
-		// mLog = new LogWrapper(Robot.class.getName());
-        // try {
-        //     mLog.info("robotInit: ---------------------------------------------------");
-        //     // mControlBoard = ControlBoard.getInstance();
-        //     // mDriveSys = DriveSys.getInstance();
-        //     // mNavXsys = NavXSys.getInstance();
-        //     // mDriveDistCmd = new DriveDistCmd(5);
-        //     mLog.info("robotInit: Completed   ---------------------------------------");
-        // } catch (Exception ex) {
-        //     mLog.severe(ex, "Robot.robotInit:  exception: " + ex.getMessage());
-        // }
+		
 	}
 
 
@@ -163,9 +138,12 @@ public class Robot extends TimedRobot {
 		//Robot.drivetrain.resetOpticalEncoder();
 		//Robot.drivetrain.resetGyro();
 		
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.start();
-		}
+		m_autonomousCommand  = new CargoPickup();
+		 
+		 if (m_autonomousCommand != null) {
+		 	m_autonomousCommand.start();
+		 }
+		
 	}
 	
 	@Override
@@ -178,7 +156,7 @@ public class Robot extends TimedRobot {
 
 		outputCameraToSmartDashboard();
 		// double turn = centerX1 - (IMG_WIDTH / 2);
-		// drive.arcadeDrive(-0.6, turn * 0.005);
+		
 	}
 
 	private void outputCameraToSmartDashboard() {
@@ -191,6 +169,8 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putData("CurveHabToRocket", new CurveHabToRocket());
 		//SmartDashboard.putData("HabToRocketHatch", new HabToRocketHatch());
 		Robot.sensors.printValue();
+
+		// SmartDashboard.putData(Robot.intake);
 
 		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 		NetworkTableEntry tx;
