@@ -34,23 +34,29 @@ public class OI {
 	public final Joystick rJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
 	public final Logitech logi = new Logitech(Constants.LOGITECH_JOYSTICK_PORT);
 	public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
-	JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT);
-	JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
-	JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
-	JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_HEIGHT);
-	JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
-	JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
-	JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP_HEIGHT);
+	JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO);
+	JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO);
+	JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO);
+	JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH);
+	JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH);
+	JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH);
+	JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP);
+
 	JoystickButton beakExtend = new JoystickButton(lJoy, Constants.BEAK_EXTEND);
 	JoystickButton beakRetract = new JoystickButton(lJoy, Constants.BEAK_RETRACT);
 	JoystickButton beakOpen = new JoystickButton(lJoy, Constants.BEAK_OPEN);
 	JoystickButton beakClose = new JoystickButton(lJoy, Constants.BEAK_CLOSE);
+	JoystickButton beakToggleOpen = new JoystickButton(rJoy, Constants.BEAK_TOGGLE_OPEN);
+	JoystickButton beakExtendToggle = new JoystickButton(lJoy, Constants.BEAK_TOGGLE_EXTEND);
+
 	JoystickButton overollerRetract = new JoystickButton(lJoy, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(lJoy, Constants.OVEROLLER_EXTEND);
-	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
-	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
 	JoystickButton overollerIn = new JoystickButton(lJoy, Constants.OVEROLLER_IN);
 	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
+
+	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
+	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
+	
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
@@ -87,6 +93,8 @@ public class OI {
 		beakRetract.whenPressed(new RetractBeak());
 		beakOpen.whenPressed(new OpenBeak());
 		beakClose.whenPressed(new CloseBeak());
+		beakToggleOpen.whenPressed(new ToggleBeakOpen());
+		beakExtendToggle.whenPressed(new ToggleExtend());
 
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
@@ -104,16 +112,15 @@ public class OI {
 		shiftLow.whenPressed(new ShiftLow());
 
 		flipDirection.whenPressed(new FlipDirection());
-		
-		//closeClamp.whenPressed(new CloseClamp());
-    	//openClamp.whenPressed(new OpenClamp());
-		//logi.dPad.up.whenPressed(new IntakeExtend());
+
 		logi.dPad.down.whenPressed(new RotateHeadNeutral());
 		logi.dPad.left.whenPressed(new RotateHeadLeft());
 		logi.dPad.right.whenPressed(new RotateHeadRight());
-		// logi.dPad.upLeft.whenPressed(new IntakeExtendNarrow());
-		// logi.dPad.upRight.whenPressed(new IntakeExtendFlat());
-		//	logi.a.whenPressed(new TurnToTarget());
-		//turnToCenterLimelight.whenActive(new TurnToCenterLimelight());
+		
+
+
+
+
+
 	}
 }

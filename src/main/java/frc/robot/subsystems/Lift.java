@@ -50,6 +50,7 @@ import frc.robot.commands.lift_commands.*;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.RemoteFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -66,7 +67,6 @@ public class Lift extends Subsystem {
 	
 	public TalonSRX liftMotor1 = new TalonSRX(RobotMap.LIFT_MOTOR_1_PORT);
 	public TalonSRX liftMotor2 = new TalonSRX(RobotMap.LIFT_MOTOR_2_PORT);
-	//public TalonSRX liftMotor2 = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 	
 	public Lift () {
 		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
@@ -80,6 +80,8 @@ public class Lift extends Subsystem {
 		configMaxOutputs(1.0);
 		liftMotor1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 		liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+		liftMotor1.setNeutralMode(NeutralMode.Brake);
+		liftMotor2.setNeutralMode(NeutralMode.Brake);
 	}
 	
 	public void moveCarriage(double power) {

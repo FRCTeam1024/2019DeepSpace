@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.buttons.Button;
+
 /**
  * Add your docs here.
  */
@@ -85,13 +87,30 @@ public class Constants {
 	public static final double SCALE_LOSS_HEIGHT = 25000.0;
 	public static final double MAX_HEIGHT = 26113;
 
+	public static final double CARGO_SHIP_HEIGHT = 3;
+	public static final double ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
+	public static final double ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
+	public static final double ROCKET_LEVEL_THREE_HATCH_HEIGHT = 7;
+	public static final double ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
+	public static final double ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
+	public static final double ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
+
+	
 	// Controller Constants:
 	
 	public static final int LEFT_JOYSTICK_PORT = 1;
 	public static final int RIGHT_JOYSTICK_PORT = 0;
 	public static final int LOGITECH_JOYSTICK_PORT = 2;
 	public static final int BUTTON_PANNEL_PORT = 3;
-	
+
+	public static final int CARGO_SHIP = 3;
+	public static final int ROCKET_LEVEL_ONE_HATCH = 9;
+	public static final int ROCKET_LEVEL_TWO_HATCH = 8;
+	public static final int ROCKET_LEVEL_THREE_HATCH = 7;
+	public static final int ROCKET_LEVEL_ONE_CARGO = 6;
+	public static final int ROCKET_LEVEL_TWO_CARGO = 5;
+	public static final int ROCKET_LEVEL_THREE_CARGO = 4;
+
 	//public static final int LEFT_JOYSTICK_TRIGGER = 0;
 	public static final int LIFT_STICK_AXIS = 3;
 	public static final int CARGO_STICK_AXIS = 1;
@@ -99,19 +118,14 @@ public class Constants {
 	public static final int INTAKE_STICK_AXIS_X = 0;
 	public static final int SHIFT_HIGH_BUTTON = 5;
 	public static final int SHIFT_LOW_BUTTON = 10;
-	
-	public static final int CARGO_SHIP_HEIGHT = 3;
-	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
-	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
-	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 7;
-	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
-	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
 
 	public static final int BEAK_EXTEND = 7;
 	public static final int BEAK_RETRACT = 8;
 	public static final int BEAK_OPEN = 6;
 	public static final int BEAK_CLOSE = 9;
+	public static final int BEAK_TOGGLE_OPEN = 1;
+	public static final int BEAK_TOGGLE_EXTEND = 1;
+
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
 	public static final int TILT_UP = 4;
@@ -129,18 +143,8 @@ public class Constants {
 	public static final int FLIP_ROBOT_DIRECTION = 8;
 	public static final int CARGOHEAD_PCM_PORT = 20;
 	public static final int CHASSIS_PCM_PORT = 12;
-	// public static final int INTAKE_SLIDE_IN_BUTTON = 8;
-	// public static final int INTAKE_SLIDE_OUT_BUTTON = 6;
 
-	// public static final int INTAKE_NARROW_ORIENTATION_BUTTON = 3;
-	// public static final int INTAKE_FLAT_ORIENTATION_BUTTON = 4;
 
-	public static final int LIFT_CLAMP_CLOSE_BUTTON = 7;
-	public static final int LIFT_CLAMP_OPEN_BUTTON = 5;
-	public static final int ENGAGE_AIRBAG_BUTTON = 8;
-	public static final int DISENGAGE_AIRBAG_BUTTON = 6;
-	public static final int CUBE_START_DETECT_BUTTON = 2;
-	//public static final int LIFT_OVERRIDE_BUTTON = 1;
 
 	public static final int INTAKE_START_ACQUIRE = 11;
 

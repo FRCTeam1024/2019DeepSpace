@@ -93,13 +93,13 @@ public class Intake extends Subsystem {
   }
   
   public void beakOpen() {
-    beakOpener.set(true);
-    beakOpenState = true;
+    beakOpener.set(false);
+    beakOpenState = false;
 	}
 	
 	public void beakClose() {
-    beakOpener.set(false);
-    beakOpenState = false;
+    beakOpener.set(true);
+    beakOpenState = true;
   }
   
   public boolean beakOpenState() {
