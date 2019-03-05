@@ -24,29 +24,29 @@ public class TiltWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    rotateHead();
-    tiltHead();
+    // rotateHead();
+    // tiltHead();
   }
 
-  private void rotateHead(){
-    if(Robot.oi.usbJoy.getX() > .5){
-      Robot.intake.rotateRight();
-    }else if(Robot.oi.usbJoy.getX() < .5){
-      Robot.intake.rotateLeft();
-    }else{
-      Robot.intake.rotateNeutral();
-    }
-  }
+  // private void rotateHead(){
+  //   if(Robot.oi.usbJoy.getX() > .5){
+  //     Robot.intake.rotateRight();
+  //   }else if(Robot.oi.usbJoy.getX() < .5){
+  //     Robot.intake.rotateLeft();
+  //   }else{
+  //     Robot.intake.rotateNeutral();
+  //   }
+  // }
 
-  private void tiltHead(){
-    if(Robot.oi.usbJoy.getY() > .5){
-      Robot.intake.tiltUp();
-    }else if(Robot.oi.usbJoy.getY() < .5){
-      Robot.intake.tiltDown();
-    }else{
-      Robot.intake.tiltNeutral();
-    }
-  }
+  // private void tiltHead(){
+  //   if(Robot.oi.usbJoy.getY() > .5){
+  //     Robot.intake.tiltUp();
+  //   }else if(Robot.oi.usbJoy.getY() < .5){
+  //     Robot.intake.tiltDown();
+  //   }else{
+  //     Robot.intake.tiltNeutral();
+  //   }
+  // }
   
   // Make this return true when this Command no longer needs to run execute()
   @Override

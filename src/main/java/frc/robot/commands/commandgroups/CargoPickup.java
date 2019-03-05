@@ -26,9 +26,14 @@ public class CargoPickup extends CommandGroup {
     // Timer.delay(2);
     // addSequential(new TiltHeadDown());
     // Timer.delay(1);
-    addParallel(new CargoHeadSpeedTimed(3));
+    //addParallel(new CargoHeadSpeedTimed(1));
     
-    addSequential(new OverRollerIntakeAndRetract());
+    addParallel(new TiltHeadDown());
+    addParallel(new OverRollerIntakeAndRetract());
+    addParallel(new CargoHeadSpeedTimed(0.75));
+    //addSequential(new OverRollerPulse());
+   //addParallel(new CargoHeadSpeedTimed(1));
+   // addSequential(new TiltHeadDown());
     // addSequential(new ExtendOverRoller());
     // Timer.delay(1);
     // addSequential(new OverRollerSpeed(1));

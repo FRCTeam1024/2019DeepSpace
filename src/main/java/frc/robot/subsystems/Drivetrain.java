@@ -206,5 +206,6 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Gyro Angle", getHeading());
 		SmartDashboard.putNumber("Encoder Value:", encoder.getDistance());
 		SmartDashboard.putNumber("Encoder 2 Value", encoder2.getDistance());
+		
 	}
 }

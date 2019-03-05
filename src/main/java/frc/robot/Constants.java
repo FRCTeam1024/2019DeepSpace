@@ -120,10 +120,12 @@ public class Constants {
 	public static final int TILT_DOWN = 2;
 	public static final int TILT_NEUTRAL = 3;
 
-	public static final int OVEROLLER_RETRACT = 14;
-	public static final int OVEROLLER_EXTEND = 13;
-	public static final int OVEROLLER_IN = 15;
+	public static final int OVEROLLER_RETRACT = 9;
+	public static final int OVEROLLER_EXTEND = 10;
+	public static final int OVEROLLER_IN_RJOY = 4;
+	public static final int OVEROLLER_IN_LOGI = 8;
 	public static final int OVEROLLER_OUT = 16;
+	//public static final int OVEROLLER_TOGGLE = 10;
 
 	public static final int CARGO_PICKUP = 5;
 

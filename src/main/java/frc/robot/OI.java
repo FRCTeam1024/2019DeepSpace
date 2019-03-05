@@ -34,14 +34,14 @@ public class OI {
 	public final Joystick lJoy = new Joystick(Constants.LEFT_JOYSTICK_PORT);
 	public final Joystick rJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
 	public final Logitech logi = new Logitech(Constants.LOGITECH_JOYSTICK_PORT);
-	public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
-	JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT);
-	JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
-	JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
-	JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_HEIGHT);
-	JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
-	JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
-	JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP_HEIGHT);
+	// public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
+	// JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT);
+	// JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
+	// JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
+	// JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_HEIGHT);
+	// JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
+	// JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
+	// JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP_HEIGHT);
 
 	JoystickButton beakExtend = new JoystickButton(lJoy, Constants.BEAK_EXTEND);
 	JoystickButton beakRetract = new JoystickButton(lJoy, Constants.BEAK_RETRACT);
@@ -49,14 +49,16 @@ public class OI {
 	JoystickButton beakClose = new JoystickButton(rJoy, Constants.BEAK_CLOSE);
 	JoystickButton beakToggle = new JoystickButton(rJoy, Constants.BEAK_TOGGLE);
 
-	JoystickButton overollerRetract = new JoystickButton(lJoy, Constants.OVEROLLER_RETRACT);
-	JoystickButton overollerExtend = new JoystickButton(lJoy, Constants.OVEROLLER_EXTEND);
+	JoystickButton overollerRetract = new JoystickButton(logi, Constants.OVEROLLER_RETRACT);
+	JoystickButton overollerExtend = new JoystickButton(logi, Constants.OVEROLLER_EXTEND);
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
 	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
 	JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
 	
-	JoystickButton overollerIn = new JoystickButton(lJoy, Constants.OVEROLLER_IN);
+	JoystickButton overollerInRJoy = new JoystickButton(rJoy, Constants.OVEROLLER_IN_RJOY);
+	JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
 	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
+	//JoystickButton overollerToggle = new JoystickButton(logi, Constants.OVEROLLER_TOGGLE);
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
@@ -81,13 +83,13 @@ public class OI {
 		
 
 
-		liftCargoShip.whenActive(new LiftCargoShip());
-		liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
-		liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
-		liftRocketCargoLevelThree.whenActive(new LiftRocketCargoLevelThree());
-		liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOne());
-		liftRocketHatchLevelTwo.whenActive(new LiftRocketHatchLevelTwo());
-		liftRocketHatchLevelThree.whenActive(new LiftRocketHatchLevelThree());
+		// liftCargoShip.whenActive(new LiftCargoShip());
+		// liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
+		// liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
+		// liftRocketCargoLevelThree.whenActive(new LiftRocketCargoLevelThree());
+		// liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOne());
+		// liftRocketHatchLevelTwo.whenActive(new LiftRocketHatchLevelTwo());
+		// liftRocketHatchLevelThree.whenActive(new LiftRocketHatchLevelThree());
 		
 		beakExtend.whenPressed(new ExtendBeak());
 		beakRetract.whenPressed(new RetractBeak());
@@ -100,8 +102,10 @@ public class OI {
 		
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
-		overollerIn.whileHeld(new OverRollerSpeed());
+		overollerInRJoy.whileHeld(new OverRollerSpeed());
+		overollerInLogi.whileHeld(new OverRollerSpeed());
 		overollerOut.whileHeld(new ReverseOverRoller());
+		//overollerToggle.toggleWhenPressed(new ExtendOverRoller());
 		
 		cargoForward.whileHeld(new ShootCargoHead());
 		cargoBackward.whileHeld(new IntakeCargoHead(-.15));

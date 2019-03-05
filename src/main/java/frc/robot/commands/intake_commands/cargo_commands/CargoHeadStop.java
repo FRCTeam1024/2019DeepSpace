@@ -5,21 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.commands.intake_commands.cargo_commands;
 
-import edu.wpi.first.wpilibj.command.TimedCommand;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
-/**
- * Add your docs here.
- */
-public class CargoHeadSpeedTimed extends TimedCommand {
-  /**
-   * Add your docs here.
-   */
-  public CargoHeadSpeedTimed(double timeout) {
-    super(timeout);
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+
+public class CargoHeadStop extends Command {
+
+  private boolean isFinished = false;
+
+  public CargoHeadStop() {
   }
 
   // Called just before this Command runs the first time
@@ -30,19 +26,24 @@ public class CargoHeadSpeedTimed extends TimedCommand {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(.50);
+    Robot.intake.cargoheadSpeed(0.0);
+    isFinished = true;
   }
 
-  // Called once after timeout
+  // Make this return true when this Command no longer needs to run execute()
+  @Override
+  protected boolean isFinished() {
+    return isFinished;
+  }
+
+  // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.cargoheadStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
-  }  
+  }
 }

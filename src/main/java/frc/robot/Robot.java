@@ -38,7 +38,6 @@ import frc.robot.commands.intake_commands.TiltWithJoystick;
 import frc.robot.commands.commandgroups.*;
 import frc.robot.commands.intake_commands.cargo_commands.CargoHeadSpeed;
 import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
-import frc.robot.commands.intake_commands.cargo_commands.ExtendOverRoller;
 import frc.robot.commands.lift_commands.MoveLiftWithJoysticks;
 import frc.robot.commands.limelight_commands.*;
 
@@ -89,7 +88,7 @@ public class Robot extends TimedRobot {
 			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 			HttpCamera limelight = CameraServer.getInstance().addAxisCamera("http://10.10.24.11:5801/");
 		
-			outputCameraToSmartDashboard();
+			outputToSmartDashboard();
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -154,12 +153,12 @@ public class Robot extends TimedRobot {
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
 
-		outputCameraToSmartDashboard();
+		outputToSmartDashboard();
 		// double turn = centerX1 - (IMG_WIDTH / 2);
 		
 	}
 
-	private void outputCameraToSmartDashboard() {
+	private void outputToSmartDashboard() {
 		
 		SmartDashboard.putNumber("Angle", drivetrain.getHeading());
 		//SmartDashboard.putData("Reset Gyro", new resetGyro());
@@ -169,7 +168,6 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putData("CurveHabToRocket", new CurveHabToRocket());
 		//SmartDashboard.putData("HabToRocketHatch", new HabToRocketHatch());
 		Robot.sensors.printValue();
-
 		// SmartDashboard.putData(Robot.intake);
 
 		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
@@ -227,8 +225,8 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 
 		Scheduler.getInstance().run();
-		outputCameraToSmartDashboard();
-		drivetrain.outputToSmartDashboard();
+		//outputToSmartDashboard();
+		//drivetrain.outputToSmartDashboard();
 
 		//intake.setCubeLight();
 		//lift.outputToSmartDashboard();

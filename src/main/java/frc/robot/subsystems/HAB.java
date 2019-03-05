@@ -28,7 +28,7 @@ public class HAB extends Subsystem {
   //change ports later
 
   //private Solenoid habClimb = new Solenoid(RobotMap.HAB_CLIMB_PORT);
-  private Solenoid habRamp = new Solenoid(RobotMap.HAB_RAMP_PORT);
+  private Solenoid habRamp = new Solenoid(Constants.CHASSIS_PCM_PORT, RobotMap.HAB_RAMP_PORT);
 
   private boolean habClimbState = true;
   private boolean habRampState = false;

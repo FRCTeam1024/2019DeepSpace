@@ -13,12 +13,15 @@ import frc.robot.*;
 
 public class ReverseOverRoller extends Command {
 
-  private boolean isFinished = false;
+
+  private int duration = 0;
 
   public ReverseOverRoller() {
-    requires(Robot.intake);
+    //requires(Robot.intake);
   }
-
+ public ReverseOverRoller(int duration){
+   this.duration = duration;
+ }
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
@@ -28,14 +31,21 @@ public class ReverseOverRoller extends Command {
   @Override
   protected void execute() {
     Robot.intake.overRollerSpeed(0.7);
-    Timer.delay(.2);
-    isFinished = true;
+    //Timer.delay(.2);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    double timeSinceInitialized = timeSinceInitialized();
+  
+    if(duration > 0) {
+      if(timeSinceInitialized > duration) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // Called once after isFinished returns true
@@ -48,5 +58,6 @@ public class ReverseOverRoller extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
