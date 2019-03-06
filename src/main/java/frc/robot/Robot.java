@@ -80,7 +80,7 @@ public class Robot extends TimedRobot {
     	sensors.startColorSensor();
     
 		try {
-			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
+			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 			HttpCamera limelight = CameraServer.getInstance().addAxisCamera("http://10.10.24.11:5801/");
 		
 			outputCameraToSmartDashboard();
