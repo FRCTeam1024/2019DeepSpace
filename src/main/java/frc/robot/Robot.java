@@ -85,7 +85,7 @@ public class Robot extends TimedRobot {
 			sensors.startColorSensor();
 
 		
-			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
+			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 			HttpCamera limelight = CameraServer.getInstance().addAxisCamera("http://10.10.24.11:5801/");
 		
 			outputToSmartDashboard();
@@ -231,7 +231,6 @@ public class Robot extends TimedRobot {
 		//intake.setCubeLight();
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
-		//intake.cubeLight.set(Relay.Value.kForward);
 		//turnTargetCommand.start();
 
 	}

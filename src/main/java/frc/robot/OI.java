@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
 import frc.robot.commands.commandgroups.CargoPickup;
+import frc.robot.commands.commandgroups.OverRollerDriverIntake;
 import frc.robot.commands.intake_commands.RotateHeadLeft;
 import frc.robot.commands.intake_commands.RotateHeadNeutral;
 import frc.robot.commands.intake_commands.RotateHeadRight;
@@ -54,6 +55,7 @@ public class OI {
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
 	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
 	JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
+	JoystickButton cargoSlow = new JoystickButton(logi, Constants.CARGO_SLOW);
 	
 	JoystickButton overollerInRJoy = new JoystickButton(rJoy, Constants.OVEROLLER_IN_RJOY);
 	JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
@@ -98,17 +100,18 @@ public class OI {
 		beakClose.whenPressed(new CloseBeak());
 
 		//overollerIn.toggleWhenPressed(new OverRollerSpeed());
-		cargoPickup.whenPressed(new CargoPickup());
+		//cargoPickup.whenPressed(new CargoPickup());
 		
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
-		overollerInRJoy.whileHeld(new OverRollerSpeed());
-		overollerInLogi.whileHeld(new OverRollerSpeed());
+		overollerInRJoy.whileHeld(new OverRollerDriverIntake());
+		overollerInLogi.whileHeld(new OverRollerDriverIntake());
 		overollerOut.whileHeld(new ReverseOverRoller());
 		//overollerToggle.toggleWhenPressed(new ExtendOverRoller());
 		
 		cargoForward.whileHeld(new ShootCargoHead());
 		cargoBackward.whileHeld(new IntakeCargoHead(-.15));
+		cargoSlow.whileHeld(new CargoHeadSlowSpeed());
 		tiltDown.whenPressed(new TiltHeadDown());
 		tiltUp.whenPressed(new TiltHeadUp());
 		tiltNeutral.whenPressed(new TiltNeutral());

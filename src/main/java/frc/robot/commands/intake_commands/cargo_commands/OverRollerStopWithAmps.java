@@ -5,21 +5,19 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands;
-import edu.wpi.first.wpilibj.Timer;
+package frc.robot.commands.intake_commands.cargo_commands;
+
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
+import frc.robot.*;
+import frc.robot.subsystems.*;
 
-public class TiltHeadDown extends Command {
-  private boolean isFinished = false;
-  double delay = 0.0;
-
-  public TiltHeadDown() {
-   // requires(Robot.intake);
+public class OverRollerStopWithAmps extends Command {
+  public boolean isFinished = false;
+  
+  public OverRollerStopWithAmps() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
-  public TiltHeadDown(double delay) {
-    this.delay = delay;
-   }
 
   // Called just before this Command runs the first time
   @Override
@@ -29,12 +27,12 @@ public class TiltHeadDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
-    if(delay > 0.0) {
-      Timer.delay(delay);
+    if(Robot.intake.overRollerMotor.getOutputCurrent() < 10.0){
+      new OverRollerSpeed();
     }
-    Robot.intake.tiltDown();
-    isFinished = true;
+    else{
+      isFinished = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
