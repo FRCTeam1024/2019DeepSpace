@@ -124,12 +124,12 @@ public class Constants {
 	public static final int OVEROLLER_EXTEND = 10;
 	public static final int OVEROLLER_IN_RJOY = 4;
 	public static final int OVEROLLER_IN_LOGI = 8;
-	public static final int OVEROLLER_OUT = 16;
+	public static final int OVEROLLER_OUT = 3;
 	//public static final int OVEROLLER_TOGGLE = 10;
 
 	public static final int CARGO_PICKUP = 5;
 
-	public static final int RAMP_EXTEND = 8;
+	public static final int RAMP_EXTEND = 11;
 	public static final int RAMP_RETRACT = 6;
 
 	public static final int FLIP_ROBOT_DIRECTION = 8;

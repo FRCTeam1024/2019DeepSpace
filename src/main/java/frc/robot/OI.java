@@ -57,10 +57,10 @@ public class OI {
 	
 	JoystickButton overollerInRJoy = new JoystickButton(rJoy, Constants.OVEROLLER_IN_RJOY);
 	JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
-	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
+	JoystickButton overollerOut = new JoystickButton(rJoy, Constants.OVEROLLER_OUT);
 	//JoystickButton overollerToggle = new JoystickButton(logi, Constants.OVEROLLER_TOGGLE);
-	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
-	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
+	JoystickButton rampExtend = new JoystickButton(rJoy, Constants.RAMP_EXTEND);
+	//JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
 	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
 
@@ -114,7 +114,6 @@ public class OI {
 		tiltNeutral.whenPressed(new TiltNeutral());
 		
 		rampExtend.whenPressed(new ExtendRamp());
-		rampRetract.whenPressed(new RetractRamp());
 		shiftHigh.whenPressed(new ShiftHigh());
 		shiftLow.whenPressed(new ShiftLow());
 

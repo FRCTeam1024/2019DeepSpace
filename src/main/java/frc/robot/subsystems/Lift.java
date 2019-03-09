@@ -70,6 +70,8 @@ public class Lift extends Subsystem {
 	
 	public Lift () {
 		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
+		
+		
 		//liftMotor2.follow(liftMotor1);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor1.config_kI(0, Constants.LIFT_KI, 10);
@@ -83,8 +85,8 @@ public class Lift extends Subsystem {
 	}
 	
 	public void moveCarriage(double power) {
-		liftMotor1.set(ControlMode.PercentOutput, -power);
-		liftMotor2.set(ControlMode.PercentOutput, -power);
+		liftMotor1.set(ControlMode.PercentOutput, power);
+		liftMotor2.set(ControlMode.PercentOutput, power);
 	}
 	
 	public void setPIDSetpoint(double setpoint) {
