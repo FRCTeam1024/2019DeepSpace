@@ -30,7 +30,7 @@ public class Intake extends Subsystem {
   //Setup ports in RobotMap
   private TalonSRX cargoHeadRight  = new TalonSRX(RobotMap.RIGHT_CARGOHEAD_MOTOR_PORT);
   private TalonSRX cargoHeadLeft = new TalonSRX(RobotMap.LEFT_CARGOHEAD_MOTOR_PORT);
-  private TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
+  public TalonSRX overRollerMotor  = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
   private DoubleSolenoid openCenterRotate = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_ROTATE_A, RobotMap.DOUBLE_ROTATE_B);
   private DoubleSolenoid openCenterTilt = new DoubleSolenoid(Constants.CARGOHEAD_PCM_PORT, RobotMap.DOUBLE_TILT_A, RobotMap.DOUBLE_TILT_B);

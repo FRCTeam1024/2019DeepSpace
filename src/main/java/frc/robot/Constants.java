@@ -116,6 +116,7 @@ public class Constants {
 
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
+	public static final int CARGO_SLOW = 1;
 	public static final int TILT_UP = 4;
 	public static final int TILT_DOWN = 2;
 	public static final int TILT_NEUTRAL = 3;

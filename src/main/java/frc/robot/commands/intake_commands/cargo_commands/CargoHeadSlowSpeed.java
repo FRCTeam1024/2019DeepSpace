@@ -5,21 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands;
-import edu.wpi.first.wpilibj.Timer;
+package frc.robot.commands.intake_commands.cargo_commands;
+
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
+import frc.robot.*;
 
-public class TiltHeadDown extends Command {
-  private boolean isFinished = false;
-  double delay = 0.0;
-
-  public TiltHeadDown() {
-   // requires(Robot.intake);
+public class CargoHeadSlowSpeed extends Command {
+  public CargoHeadSlowSpeed() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
-  public TiltHeadDown(double delay) {
-    this.delay = delay;
-   }
 
   // Called just before this Command runs the first time
   @Override
@@ -29,28 +24,25 @@ public class TiltHeadDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
-    if(delay > 0.0) {
-      Timer.delay(delay);
-    }
-    Robot.intake.tiltDown();
-    isFinished = true;
+    Robot.intake.cargoheadSpeed(0.25);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isFinished;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.intake.cargoheadSpeed(0.0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

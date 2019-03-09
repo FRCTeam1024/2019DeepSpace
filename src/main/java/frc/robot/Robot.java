@@ -231,7 +231,6 @@ public class Robot extends TimedRobot {
 		//intake.setCubeLight();
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
-		//intake.cubeLight.set(Relay.Value.kForward);
 		//turnTargetCommand.start();
 
 	}
