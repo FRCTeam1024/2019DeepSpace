@@ -8,14 +8,18 @@
 package frc.robot.commands.intake_commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
 import frc.robot.Robot;
 
 public class TiltHeadUp extends Command {
   private boolean isFinished = false;
-
+  double delay = 0.0;
   public TiltHeadUp() {
-    requires(Robot.intake);
+    //requires(Robot.intake);
   }
+  public TiltHeadUp(double delay) {
+    this.delay = delay;
+   }
 
   // Called just before this Command runs the first time
   @Override
@@ -25,6 +29,9 @@ public class TiltHeadUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(delay > 0.0) {
+      Timer.delay(delay);
+    }
     Robot.intake.tiltUp();
     isFinished = true;
   }

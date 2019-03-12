@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
   	public static Intake intake = new Intake();
   	public static HAB hab = new HAB();
   	public static Sensors sensors = new Sensors();
-	public static PowerDistributionPanel pdp = new PowerDistributionPanel();
+	// public static PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi = new OI();
   	
 	Command m_autonomousCommand;
@@ -86,6 +86,7 @@ public class Robot extends TimedRobot {
 
 		
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
+		
 			HttpCamera limelight = CameraServer.getInstance().addAxisCamera("http://10.10.24.11:5801/");
 		
 			outputToSmartDashboard();
@@ -98,7 +99,7 @@ public class Robot extends TimedRobot {
 	}
 
 	private void initLogging() {
-		HelixEvents.getInstance().startLogging();
+		// HelixEvents.getInstance().startLogging();
 		
 	}
 
@@ -137,7 +138,7 @@ public class Robot extends TimedRobot {
 		//Robot.drivetrain.resetOpticalEncoder();
 		//Robot.drivetrain.resetGyro();
 		
-		m_autonomousCommand  = new CargoPickup();
+		// m_autonomousCommand  = new CargoPickup();
 		 
 		 if (m_autonomousCommand != null) {
 		 	m_autonomousCommand.start();

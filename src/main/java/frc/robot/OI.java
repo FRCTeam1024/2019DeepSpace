@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
-import frc.robot.commands.commandgroups.CargoPickup;
 import frc.robot.commands.commandgroups.OverRollerDriverIntake;
 import frc.robot.commands.intake_commands.RotateHeadLeft;
 import frc.robot.commands.intake_commands.RotateHeadNeutral;
@@ -54,15 +53,15 @@ public class OI {
 	JoystickButton overollerExtend = new JoystickButton(logi, Constants.OVEROLLER_EXTEND);
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
 	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
-	JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
+	//JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
 	JoystickButton cargoSlow = new JoystickButton(logi, Constants.CARGO_SLOW);
 	
 	JoystickButton overollerInRJoy = new JoystickButton(rJoy, Constants.OVEROLLER_IN_RJOY);
-	JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
+	//JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
 	JoystickButton overollerOut = new JoystickButton(rJoy, Constants.OVEROLLER_OUT);
 	//JoystickButton overollerToggle = new JoystickButton(logi, Constants.OVEROLLER_TOGGLE);
-	JoystickButton rampExtend = new JoystickButton(rJoy, Constants.RAMP_EXTEND);
-	//JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
+	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
+	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
 	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
 
@@ -105,7 +104,7 @@ public class OI {
 		overollerRetract.whenPressed(new RetractOverRoller());
 		overollerExtend.whenPressed(new ExtendOverRoller());
 		overollerInRJoy.whileHeld(new OverRollerDriverIntake());
-		overollerInLogi.whileHeld(new OverRollerDriverIntake());
+		//overollerInLogi.whileHeld(new OverRollerDriverIntake());
 		overollerOut.whileHeld(new ReverseOverRoller());
 		//overollerToggle.toggleWhenPressed(new ExtendOverRoller());
 		
@@ -117,6 +116,7 @@ public class OI {
 		tiltNeutral.whenPressed(new TiltNeutral());
 		
 		rampExtend.whenPressed(new ExtendRamp());
+		rampRetract.whenPressed(new RetractRamp());
 		shiftHigh.whenPressed(new ShiftHigh());
 		shiftLow.whenPressed(new ShiftLow());
 
@@ -125,9 +125,9 @@ public class OI {
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
 		//logi.dPad.up.whenPressed(new IntakeExtend());
-		logi.dPad.down.whenPressed(new RotateHeadNeutral());
+		logi.dPad.right.whenPressed(new RotateHeadNeutral());
 		logi.dPad.left.whenPressed(new RotateHeadLeft());
-		logi.dPad.right.whenPressed(new RotateHeadRight());
+		logi.dPad.down.whenPressed(new RotateHeadRight());
 		// logi.dPad.upLeft.whenPressed(new IntakeExtendNarrow());
 		// logi.dPad.upRight.whenPressed(new IntakeExtendFlat());
 		//	logi.a.whenPressed(new TurnToTarget());

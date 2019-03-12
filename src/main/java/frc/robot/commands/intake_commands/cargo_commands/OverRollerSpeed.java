@@ -34,7 +34,7 @@ public class OverRollerSpeed extends Command {
   }
   
   private void log(String msg) {
-    HelixEvents.getInstance().addEvent("OverRollerSpeed", msg);
+    // HelixEvents.getInstance().addEvent("OverRollerSpeed", msg);
   }
 
   // Called repeatedly when this Command is scheduled to run
