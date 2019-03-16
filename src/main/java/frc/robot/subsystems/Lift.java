@@ -53,6 +53,7 @@ import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.RemoteFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -67,6 +68,7 @@ public class Lift extends Subsystem {
 	public TalonSRX liftMotor1 = new TalonSRX(RobotMap.LIFT_MOTOR_1_PORT);
 	public TalonSRX liftMotor2 = new TalonSRX(RobotMap.LIFT_MOTOR_2_PORT);
 	//public TalonSRX liftMotor2 = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
+
 	
 	public Lift () {
 		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());

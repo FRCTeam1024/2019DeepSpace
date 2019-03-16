@@ -13,7 +13,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.HttpCamera;
 import edu.wpi.cscore.VideoMode;
 import edu.wpi.first.wpilibj.CameraServer;
-
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Relay;
@@ -74,7 +74,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void robotInit() {
-    
+		//DigitalInput limitSwitchTop = new DigitalInput(1);
+        //DigitalInput limitSwitchBottom = new DigitalInput(2);
 		
 		try {
 			oi = new OI();
@@ -207,7 +208,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		
+
 		// drivetrain.setBrake();
 		// lift.disengageAirBag();
 		// intake.setCubeLight();
@@ -233,7 +234,14 @@ public class Robot extends TimedRobot {
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
 		//turnTargetCommand.start();
-
+		DigitalInput limitSwitchTop = new DigitalInput(1);
+        DigitalInput limitSwitchBottom = new DigitalInput(2);
+		double output = Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS); //Moves the joystick based on Y value
+		if (limitSwitchTop.get()) // If the forward limit switch is pressed, we want to keep the values between -1 and 0
+            output = Math.min(output, 0);
+        else if(limitSwitchBottom.get()) // If the reversed limit switch is pressed, we want to keep the values between 0 and 1
+            output = Math.max(output, 0);
+        lift.moveCarriage(0);
 	}
 	
 	@Override
