@@ -18,10 +18,10 @@ public class RobotMap {
   //Motors:
 	public static final int OVER_ROLLER_MOTOR_PORT = 10;
 	
-	public static final int LEFT_CARGOHEAD_MOTOR_PORT = 2;
+	public static final int LEFT_CARGOHEAD_MOTOR_PORT = 11;
 	public static final int RIGHT_CARGOHEAD_MOTOR_PORT = 1;
 
-	public static final int FRONT_LEFT_MOTOR_PORT = 13;
+	public static final int FRONT_LEFT_MOTOR_PORT = 2;
 	public static final int MIDDLE_LEFT_MOTOR_PORT = 3;
 	public static final int REAR_LEFT_MOTOR_PORT = 4;
 	public static final int FRONT_RIGHT_MOTOR_PORT = 5;
@@ -36,6 +36,8 @@ public class RobotMap {
 	public static final int SHIFTER_PORT = 3;
 	//public static final int AIRBAG_PORT = 3;
 	public static final int INTAKE_POS_PORT = 4;
+
+	
 	public static final int LIFT_CLAMP_PORT = 5;
 	
 	public static final int DOUBLE_ROTATE_A = 2;
@@ -55,12 +57,13 @@ public class RobotMap {
 	public static final Port COLOR_SENSOR_PORT = Port.kOnboard;
 	
 	//Digital
-	public static final int DRIVE_ENCODER_CHANNEL_A = 0;
-	public static final int DRIVE_ENCODER_CHANNEL_B = 1;
+	public static final int DRIVE_ENCODER_CHANNEL_A = 5;
+	public static final int DRIVE_ENCODER_CHANNEL_B = 6;
 	public static final int DRIVE_ENCODER2_CHANNEL_A = 3;
 	public static final int DRIVE_ENCODER2_CHANNEL_B = 4;
 	public static final int LEFT_BUMP_CUBE_DETECTOR_PORT = 2;
-	public static final int RIGHT_BUMP_CUBE_DETECTOR_PORT = 3;
-	public static final int LIMIT_SWITCH_TOP = 0;
+	public static final int RIGHT_BUMP_CUBE_DETECTOR_PORT = 7;
+/*	public static final int LIMIT_SWITCH_TOP = 0;
 	public static final int LIMIT_SWITCH_BOTTOM = 1;
+*/
 }

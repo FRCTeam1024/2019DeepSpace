@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class MoveLiftWithJoysticks extends Command {
-
+public double movePower;
     public MoveLiftWithJoysticks() {
     	requires(Robot.lift);
     }
@@ -36,7 +36,24 @@ public class MoveLiftWithJoysticks extends Command {
     		Robot.lift.configMaxOutputs(1.00);
 		}*/
 		//if(Robot.lift.getCommandedOutput() > 0.0){
-		Robot.lift.moveCarriage(Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS));
+		
+		movePower = -Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS);
+
+		if(Robot.lift.getLimitSwitchTop() == false){ //if top limit switch is pressed
+			//	System.out.println("top false");
+				if(movePower > 0.0){
+					movePower = 0.0;
+				}
+
+			}
+			if(Robot.lift.getLimitSwitchBottom() == false){ //if bottom limit switch is pressed
+		//		System.out.println("bottom false");
+				if(movePower < 0.0){
+					movePower = 0.0;
+				}
+			}
+		//System.out.println(-movePower);
+		Robot.lift.moveCarriage(movePower);
 	}
 //	}
 

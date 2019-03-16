@@ -9,6 +9,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.*;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
@@ -23,6 +24,7 @@ import frc.robot.commands.intake_commands.cargo_commands.*;
 import frc.robot.commands.intake_commands.hatch_commands.*;
 import frc.robot.commands.limelight_commands.*;
 import frc.robot.commands.lift_commands.*;
+import frc.robot.commands.autodriving.*;
 import frc.robot.commands.drivetrain_commands.*;
 import frc.robot.commands.hab_commands.*;
 
@@ -49,6 +51,7 @@ public class OI {
 	JoystickButton beakClose = new JoystickButton(rJoy, Constants.BEAK_CLOSE);
 	JoystickButton beakToggle = new JoystickButton(rJoy, Constants.BEAK_TOGGLE);
 
+
 	JoystickButton overollerRetract = new JoystickButton(logi, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(logi, Constants.OVEROLLER_EXTEND);
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
@@ -64,6 +67,7 @@ public class OI {
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
 	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
+	JoystickButton driveToVisibleTarget = new JoystickButton(lJoy, Constants.DRIVE_TO_VISIBLE_TARGET);
 
 	JoystickButton tiltUp = new JoystickButton(logi, Constants.TILT_UP);
 	JoystickButton tiltDown = new JoystickButton(logi, Constants.TILT_DOWN);
@@ -121,6 +125,7 @@ public class OI {
 		shiftLow.whenPressed(new ShiftLow());
 
 		flipDirection.whenPressed(new FlipDirection());
+		driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
 		
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());

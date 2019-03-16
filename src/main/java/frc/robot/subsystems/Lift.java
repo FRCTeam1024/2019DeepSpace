@@ -67,12 +67,15 @@ public class Lift extends Subsystem {
 	
 	public TalonSRX liftMotor1 = new TalonSRX(RobotMap.LIFT_MOTOR_1_PORT);
 	public TalonSRX liftMotor2 = new TalonSRX(RobotMap.LIFT_MOTOR_2_PORT);
+	DigitalInput limitSwitchTop;
+	DigitalInput limitSwitchBottom;
 	//public TalonSRX liftMotor2 = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
 
 	
 	public Lift () {
 		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
-		
+		limitSwitchTop = new DigitalInput(0);
+        limitSwitchBottom = new DigitalInput(1);
 		
 		//liftMotor2.follow(liftMotor1);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
@@ -121,6 +124,12 @@ public class Lift extends Subsystem {
 		liftMotor2.configPeakOutputForward(maxPower, 10); 
 		liftMotor2.configPeakOutputReverse(-maxPower, 10);
 	}
+	public void configMinOutputs(double minPower) {
+		liftMotor1.configPeakOutputForward(minPower, 10);
+		liftMotor1.configPeakOutputReverse(-minPower, 10);
+		liftMotor2.configPeakOutputForward(minPower, 10); 
+		liftMotor2.configPeakOutputReverse(-minPower, 10);
+	}
 	
 	public double getCommandedOutput() {
 		return liftMotor1.getMotorOutputPercent();
@@ -128,5 +137,11 @@ public class Lift extends Subsystem {
 	
     public void initDefaultCommand() {
     	setDefaultCommand(new MoveLiftWithJoysticks());
-    }
+	}
+	public boolean getLimitSwitchTop(){
+		return limitSwitchTop.get();
+	}
+	public boolean getLimitSwitchBottom(){
+		return limitSwitchBottom.get();
+	}
 }

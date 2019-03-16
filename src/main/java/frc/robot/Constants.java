@@ -129,6 +129,7 @@ public class Constants {
 	//public static final int OVEROLLER_TOGGLE = 10;
 
 	public static final int CARGO_PICKUP = 5;
+	public static final int DRIVE_TO_VISIBLE_TARGET = 8;
 
 	public static final int RAMP_EXTEND = 7;
 	public static final int RAMP_RETRACT = 5;

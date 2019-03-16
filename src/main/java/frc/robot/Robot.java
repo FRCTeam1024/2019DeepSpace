@@ -12,6 +12,10 @@ import java.util.List;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.HttpCamera;
 import edu.wpi.cscore.VideoMode;
+import edu.wpi.first.wpilibj.buttons.*;
+import edu.wpi.first.wpilibj.DigitalInput;
+
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -71,12 +75,15 @@ public class Robot extends TimedRobot {
   private static double LimeX;
   
 	private static int cameraMode = 0;
-
+	// DigitalInput limitSwitchTop;
+	// DigitalInput limitSwitchBottom;
+	//Button limitSwitchTop = new DigitalIOButton(0);
 	@Override
 	public void robotInit() {
-		//DigitalInput limitSwitchTop = new DigitalInput(1);
-        //DigitalInput limitSwitchBottom = new DigitalInput(2);
-		
+		// limitSwitchTop = new DigitalInput(0);
+        // limitSwitchBottom = new DigitalInput(1);
+		//  DigitalInput limitSwitchTop;
+        //  DigitalInput limitSwitchBottom;
 		try {
 			oi = new OI();
 			NetworkTableEntry tx;
@@ -103,6 +110,12 @@ public class Robot extends TimedRobot {
 		// HelixEvents.getInstance().startLogging();
 		
 	}
+	// public boolean getLimitSwitchTop(){
+	// 	return limitSwitchTop.get();
+	// }
+	// public boolean getLimitSwitchBottom(){
+	// 	return limitSwitchBottom.get();
+	// }
 
 
 	public static int switchCameraMode(){
@@ -234,14 +247,36 @@ public class Robot extends TimedRobot {
 		//lift.outputToSmartDashboard();
 		//intake.outputToSmartDashboard();
 		//turnTargetCommand.start();
-		DigitalInput limitSwitchTop = new DigitalInput(1);
-        DigitalInput limitSwitchBottom = new DigitalInput(2);
-		double output = Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS); //Moves the joystick based on Y value
-		if (limitSwitchTop.get()) // If the forward limit switch is pressed, we want to keep the values between -1 and 0
-            output = Math.min(output, 0);
+		// limitSwitchTop = new DigitalInput(0);
+        // limitSwitchBottom = new DigitalInput(1);
+		//double output = Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS); //Moves the joystick based on Y value
+	/*	if (limitSwitchTop.get()) // If the forward limit switch is pressed, we want to keep the values between -1 and 0
+			//output = Math.min(output, 0);
+			
+			System.out.println("")
         else if(limitSwitchBottom.get()) // If the reversed limit switch is pressed, we want to keep the values between 0 and 1
-            output = Math.max(output, 0);
-        lift.moveCarriage(0);
+            //output = Math.max(output, 0);
+			//lift.moveCarriage(0.0);
+			*/
+		
+		
+		// 	if(getLimitSwitchTop() == false){
+		// 	//	System.out.println("top false");
+		// 		Robot.lift.configMaxOutputs(0.0);
+		// 	}
+		// 	else if(getLimitSwitchTop() == true){
+		// 	//	System.out.println("top true");
+		// 		Robot.lift.configMaxOutputs(1.0);
+		// 	}
+
+		// 	if(getLimitSwitchBottom() == false){
+		// //		System.out.println("bottom false");
+		// 		Robot.lift.configMinOutputs(0.0);
+		// 	}
+		// 	else if(getLimitSwitchBottom() == true){
+		// 	//	System.out.println("bottom true");
+		// 		Robot.lift.configMinOutputs(-1.0);
+		// 	}
 	}
 	
 	@Override
