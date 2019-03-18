@@ -82,6 +82,7 @@ public class Lift extends Subsystem {
 		liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
 		liftMotor1.setNeutralMode(NeutralMode.Brake);
 		liftMotor2.setNeutralMode(NeutralMode.Brake);
+
 	}
 	
 	public void moveCarriage(double power) {

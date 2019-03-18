@@ -187,6 +187,7 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putData("Reset Gyro", new resetGyro());
 		//SmartDashboard.putData("CurveToTarget", new TurnToTarget());
 		SmartDashboard.putData("Change Camera Mode", new SwitchCameraMode());
+		SmartDashboard.putNumber("Lift Encoder", lift.getLiftEncoderValue());
 		//SmartDashboard.putData("TurnToCenterLimelight", new TurnToCenterLimelight());
 		//SmartDashboard.putData("CurveHabToRocket", new CurveHabToRocket());
 		//SmartDashboard.putData("HabToRocketHatch", new HabToRocketHatch());
