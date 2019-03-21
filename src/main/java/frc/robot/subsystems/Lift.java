@@ -85,8 +85,8 @@ public class Lift extends Subsystem {
 		liftMotor2.config_kI(0, Constants.LIFT_KI, 10);
 		liftMotor2.config_kD(0, Constants.LIFT_KD, 10);*/
 		configMaxOutputs(1.0);
-		liftMotor1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-		liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+		liftMotor2.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		//liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
 	}
 	
 	public void moveCarriage(double power) {
@@ -104,7 +104,7 @@ public class Lift extends Subsystem {
 	}
 	
 	public void resetEncoder() {
-		liftMotor1.setSelectedSensorPosition(0, 0, 10);
+		liftMotor2.setSelectedSensorPosition(0, 0, 10);
 	}
 	
 	public void outputToSmartDashboard() {
@@ -115,7 +115,8 @@ public class Lift extends Subsystem {
 	}
 	
 	public double getLiftEncoderValue() {
-		return liftMotor1.getSelectedSensorPosition(0);
+		return liftMotor2.getSelectedSensorPosition(0);
+
 	}
 	
 	public void configMaxOutputs(double maxPower) {

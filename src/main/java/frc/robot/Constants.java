@@ -100,13 +100,22 @@ public class Constants {
 	public static final int SHIFT_HIGH_BUTTON = 5;
 	public static final int SHIFT_LOW_BUTTON = 10;
 	
-	public static final int CARGO_SHIP_HEIGHT = 3;
-	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
-	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
-	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 7;
-	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
-	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
+	public static final int CARGO_SHIP_BUTTON = 3;
+	public static final int ROCKET_LEVEL_ONE_HATCH_BUTTON = 9;
+	public static final int ROCKET_LEVEL_TWO_HATCH_BUTTON = 8;
+	public static final int ROCKET_LEVEL_THREE_HATCH_BUTTON = 7;
+	public static final int ROCKET_LEVEL_ONE_CARGO_BUTTON = 6;
+	public static final int ROCKET_LEVEL_TWO_CARGO_BUTTON = 5;
+	public static final int ROCKET_LEVEL_THREE_CARGO_BUTTON = 4;
+
+	public static final int CARGO_SHIP_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 1000;
+	public static final int LIFT_ENCODER_TOLERANCE = 100;
 
 	public static final int BEAK_EXTEND = 2;
 	public static final int BEAK_RETRACT = 1;

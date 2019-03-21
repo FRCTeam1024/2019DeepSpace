@@ -48,12 +48,14 @@ public double movePower;
 			}
 			if(Robot.lift.getLimitSwitchBottom() == false){ //if bottom limit switch is pressed
 		//		System.out.println("bottom false");
+				Robot.lift.resetEncoder();
 				if(movePower < 0.0){
 					movePower = 0.0;
 				}
 			}
 		//System.out.println(-movePower);
 		Robot.lift.moveCarriage(movePower);
+		//System.out.println(Robot.lift.getLiftEncoderValue());
 	}
 //	}
 

@@ -8,6 +8,7 @@
 package frc.robot.commands.lift_commands;
 
 
+import frc.robot.Constants;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -18,7 +19,7 @@ public class LiftRocketCargoLevelOne extends Command {
   public LiftRocketCargoLevelOne() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.lift);
+    //requires(Robot.lift);
   }
 
   // Called just before this Command runs the first time
@@ -29,11 +30,19 @@ public class LiftRocketCargoLevelOne extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.lift.moveCarriage(0.5);
-    if(Robot.lift.getLiftEncoderValue() >= 400){
-      Robot.lift.stopLift();
-      isFinished = true;
+    if(Robot.lift.getLiftEncoderValue() >= (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE)){
+      Robot.lift.moveCarriage(-0.5);
+      System.out.println("LIFT TOO HIGH");
     }
+    else if(Robot.lift.getLiftEncoderValue() <= (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE)){
+      Robot.lift.moveCarriage(0.5);
+      System.out.println("LIFT TOO LOW");
+      }
+      else if(Robot.lift.getLiftEncoderValue() > (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE) && Robot.lift.getLiftEncoderValue() < (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE))  {
+      Robot.lift.stopLift();
+      System.out.println("LIFT AT HEIGHT");
+      isFinished = true;
+      }
 
   }
 
@@ -46,6 +55,7 @@ public class LiftRocketCargoLevelOne extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+
   }
 
   // Called when another command which requires one or more of the same
