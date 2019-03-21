@@ -88,13 +88,13 @@ public class OI {
 		
 
 
-		 liftCargoShip.whenActive(new LiftCargoShipPID());
-		 liftRocketCargoLevelOne.whileHeld(new LiftRocketCargoLevelOnePID());
-		 liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwoPID());
-		 liftRocketCargoLevelThree.whenActive(new LiftRocketCargoLevelThreePID());
-		 liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOnePID());
-		 liftRocketHatchLevelTwo.whenActive(new LiftRocketHatchLevelTwoPID());
-		 liftRocketHatchLevelThree.whenActive(new LiftRocketHatchLevelThreePID());
+		 liftCargoShip.whenPressed(new LiftCargoShipPID());
+		 liftRocketCargoLevelOne.whenPressed(new LiftRocketCargoLevelOnePID());
+		 liftRocketCargoLevelTwo.whenPressed(new LiftRocketCargoLevelTwoPID());
+		 liftRocketCargoLevelThree.whenPressed(new LiftRocketCargoLevelThreePID());
+		 liftRocketHatchLevelOne.whenPressed(new LiftRocketHatchLevelOnePID());
+		 liftRocketHatchLevelTwo.whenPressed(new LiftRocketHatchLevelTwoPID());
+		 liftRocketHatchLevelThree.whenPressed(new LiftRocketHatchLevelThreePID());
 		
 		beakExtend.whenPressed(new ExtendBeak());
 		beakRetract.whenPressed(new RetractBeak());

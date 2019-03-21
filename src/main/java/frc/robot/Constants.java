@@ -87,11 +87,11 @@ public class Constants {
 
 	public static final int CARGO_SHIP_HEIGHT = 1000;
 	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 1000;
-	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 1000;
-	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8000;
+	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 19000;
 	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 1000;
-	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 1000;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 14000;
+	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 21000;
 	public static final int LIFT_ENCODER_TOLERANCE = 100;
 
 	// Controller Constants:
