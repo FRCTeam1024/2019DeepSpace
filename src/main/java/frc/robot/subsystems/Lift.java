@@ -72,7 +72,7 @@ public class Lift extends Subsystem {
 		liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
 		limitSwitchTop = new DigitalInput(0);
         limitSwitchBottom = new DigitalInput(1);
-		liftMotor2.follow(liftMotor1);
+		liftMotor1.follow(liftMotor2);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor1.config_kI(0, Constants.LIFT_KI, 10);
 		liftMotor1.config_kD(0, Constants.LIFT_KD, 10);
@@ -87,13 +87,13 @@ public class Lift extends Subsystem {
 	}
 	
 	public void moveCarriage(double power) {
-		liftMotor1.set(ControlMode.PercentOutput, power);
-	//	liftMotor2.set(ControlMode.PercentOutput, power);
+		liftMotor2.set(ControlMode.PercentOutput, power);
+	//	liftMotor1.set(ControlMode.PercentOutput, power);
 	}
 	
 	public void setPIDSetpoint(double setpoint) {
-		liftMotor1.set(ControlMode.Position, setpoint);
-	//	liftMotor2.set(ControlMode.Position, setpoint);
+		liftMotor2.set(ControlMode.Position, setpoint);
+	//	liftMotor1.set(ControlMode.Position, setpoint);
 	}
 	
 	public void stopLift() {
