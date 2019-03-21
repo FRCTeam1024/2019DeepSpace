@@ -101,7 +101,7 @@ public class Lift extends Subsystem {
 	}
 	
 	public void resetEncoder() {
-		liftMotor1.setSelectedSensorPosition(0, 0, 10);
+		liftMotor2.setSelectedSensorPosition(0, 0, 10);
 	}
 	
 	public void outputToSmartDashboard() {

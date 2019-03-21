@@ -75,15 +75,9 @@ public class Robot extends TimedRobot {
   private static double LimeX;
   
 	private static int cameraMode = 0;
-	// DigitalInput limitSwitchTop;
-	// DigitalInput limitSwitchBottom;
-	//Button limitSwitchTop = new DigitalIOButton(0);
 	@Override
 	public void robotInit() {
-		// limitSwitchTop = new DigitalInput(0);
-        // limitSwitchBottom = new DigitalInput(1);
-		//  DigitalInput limitSwitchTop;
-        //  DigitalInput limitSwitchBottom;
+		Robot.lift.resetEncoder();
 		try {
 			oi = new OI();
 			NetworkTableEntry tx;
@@ -92,6 +86,7 @@ public class Robot extends TimedRobot {
 			initLogging();
 			sensors.startColorSensor();
 
+			
 		
 			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 		
@@ -175,44 +170,45 @@ public class Robot extends TimedRobot {
 
 	private void outputToSmartDashboard() {
 		
-		SmartDashboard.putNumber("Angle", drivetrain.getHeading());
+	//	SmartDashboard.putNumber("Angle", drivetrain.getHeading());
+		// SmartDashboard.putNumber("Lift Encoder Value", lift.getLiftEncoderValue());
 		//SmartDashboard.putData("Reset Gyro", new resetGyro());
 		//SmartDashboard.putData("CurveToTarget", new TurnToTarget());
-		SmartDashboard.putData("Change Camera Mode", new SwitchCameraMode());
+	//	SmartDashboard.putData("Change Camera Mode", new SwitchCameraMode());
 		//SmartDashboard.putData("TurnToCenterLimelight", new TurnToCenterLimelight());
 		//SmartDashboard.putData("CurveHabToRocket", new CurveHabToRocket());
 		//SmartDashboard.putData("HabToRocketHatch", new HabToRocketHatch());
-		Robot.sensors.printValue();
+	//	Robot.sensors.printValue();
 		// SmartDashboard.putData(Robot.intake);
 
-		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-		NetworkTableEntry tx;
-		NetworkTableEntry ty;
-		NetworkTableEntry ta;
-		NetworkTableEntry thor;
-		NetworkTableEntry tvert;
+		// NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+		// NetworkTableEntry tx;
+		// NetworkTableEntry ty;
+		// NetworkTableEntry ta;
+		// NetworkTableEntry thor;
+		// NetworkTableEntry tvert;
 		
-		tx = table.getEntry("tx");
-		ty = table.getEntry("ty");
-		ta = table.getEntry("ta");
-		thor = table.getEntry("thor");
-		tvert = table.getEntry("tvert");
+		// tx = table.getEntry("tx");
+		// ty = table.getEntry("ty");
+		// ta = table.getEntry("ta");
+		// thor = table.getEntry("thor");
+		// tvert = table.getEntry("tvert");
 
-		//read values periodically
-		LimeX = tx.getDouble(0.0);
-		double y = ty.getDouble(0.0);
-		double area = ta.getDouble(0.0);
-		double hor = thor.getDouble(0.0);
-		double vert = tvert.getDouble(0.0);
-		double areaCalc = hor*vert;
+		// //read values periodically
+		// LimeX = tx.getDouble(0.0);
+		// double y = ty.getDouble(0.0);
+		// double area = ta.getDouble(0.0);
+		// double hor = thor.getDouble(0.0);
+		// double vert = tvert.getDouble(0.0);
+		// double areaCalc = hor*vert;
 
-		//post to smart dashboard periodically
-		SmartDashboard.putNumber("LimelightX", LimeX);
-		SmartDashboard.putNumber("LimelightY", y);
-		SmartDashboard.putNumber("LimelightArea", area);
-		SmartDashboard.putNumber("Limelight Horizontal", hor);
-		SmartDashboard.putNumber("Limelight Vertical", vert);
-		SmartDashboard.putNumber("LimelightArea Calculated", areaCalc);
+		// //post to smart dashboard periodically
+		// SmartDashboard.putNumber("LimelightX", LimeX);
+		// SmartDashboard.putNumber("LimelightY", y);
+		// SmartDashboard.putNumber("LimelightArea", area);
+		// SmartDashboard.putNumber("Limelight Horizontal", hor);
+		// SmartDashboard.putNumber("Limelight Vertical", vert);
+		// SmartDashboard.putNumber("LimelightArea Calculated", areaCalc);
 	}
 	
 	public static double getLimeLightX(){
@@ -240,6 +236,12 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Lift Encoder Value", lift.getLiftEncoderValue());
+		SmartDashboard.putBoolean("ON WHITE TAPE", false);
+		if(Robot.sensors.blue() > 100 && Robot.sensors.green() > 100 && Robot.sensors.red() > 100){
+			SmartDashboard.putBoolean("ON WHITE TAPE", true);
+		}
+
 		//outputToSmartDashboard();
 		//drivetrain.outputToSmartDashboard();
 

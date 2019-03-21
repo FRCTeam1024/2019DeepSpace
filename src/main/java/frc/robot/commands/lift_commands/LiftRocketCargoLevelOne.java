@@ -5,17 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.intake_commands.cargo_commands;
+package frc.robot.commands.lift_commands;
 
-import edu.wpi.first.wpilibj.Timer;
+
+import frc.robot.Constants;
+import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.*;
 
-public class CargoHeadSpeed extends Command {
+public class LiftRocketCargoLevelOne extends Command {
+  public boolean isFinished = false;
 
-  private boolean isFinished = false;
 
-  public CargoHeadSpeed() {
+  public LiftRocketCargoLevelOne() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    //requires(Robot.lift);
   }
 
   // Called just before this Command runs the first time
@@ -26,8 +30,20 @@ public class CargoHeadSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(0.50);
-    // isFinished = true;
+    if(Robot.lift.getLiftEncoderValue() >= (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE)){
+      Robot.lift.moveCarriage(-0.5);
+      System.out.println("LIFT TOO HIGH");
+    }
+    else if(Robot.lift.getLiftEncoderValue() <= (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE)){
+      Robot.lift.moveCarriage(0.5);
+      System.out.println("LIFT TOO LOW");
+      }
+      else if(Robot.lift.getLiftEncoderValue() > (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE) && Robot.lift.getLiftEncoderValue() < (Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE))  {
+      Robot.lift.stopLift();
+      System.out.println("LIFT AT HEIGHT");
+      isFinished = true;
+      }
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,6 +55,7 @@ public class CargoHeadSpeed extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+
   }
 
   // Called when another command which requires one or more of the same

@@ -40,6 +40,7 @@ public class RobotMap {
 	
 	public static final int LIFT_CLAMP_PORT = 5;
 	
+	public static final int CARGOHEAD_ROTATE = 2;
 	public static final int DOUBLE_ROTATE_A = 2;
 	public static final int DOUBLE_ROTATE_B = 3;
 	public static final int DOUBLE_TILT_A = 4;
