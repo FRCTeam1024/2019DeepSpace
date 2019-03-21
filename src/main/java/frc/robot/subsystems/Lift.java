@@ -43,20 +43,16 @@ public class Lift extends Subsystem {
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.lift_commands.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.RemoteFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -69,34 +65,35 @@ public class Lift extends Subsystem {
 	public TalonSRX liftMotor2 = new TalonSRX(RobotMap.LIFT_MOTOR_2_PORT);
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
-	//public TalonSRX liftMotor2 = new TalonSRX(RobotMap.OVER_ROLLER_MOTOR_PORT);
+	
 
 	
 	public Lift () {
-		//liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
+		liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
 		limitSwitchTop = new DigitalInput(0);
         limitSwitchBottom = new DigitalInput(1);
-		
-		//liftMotor2.follow(liftMotor1);
+		liftMotor2.follow(liftMotor1);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor1.config_kI(0, Constants.LIFT_KI, 10);
 		liftMotor1.config_kD(0, Constants.LIFT_KD, 10);
-		/*liftMotor2.config_kP(0, Constants.LIFT_KP, 10);
+		liftMotor2.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor2.config_kI(0, Constants.LIFT_KI, 10);
-		liftMotor2.config_kD(0, Constants.LIFT_KD, 10);*/
+		liftMotor2.config_kD(0, Constants.LIFT_KD, 10);
 		configMaxOutputs(1.0);
-		liftMotor1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-		liftMotor2.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+		liftMotor2.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		liftMotor1.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+		//liftMotor1.setNeutralMode(NeutralMode.Brake);
+		//liftMotor2.setNeutralMode(NeutralMode.Brake);
 	}
 	
 	public void moveCarriage(double power) {
 		liftMotor1.set(ControlMode.PercentOutput, power);
-		liftMotor2.set(ControlMode.PercentOutput, power);
+	//	liftMotor2.set(ControlMode.PercentOutput, power);
 	}
 	
 	public void setPIDSetpoint(double setpoint) {
 		liftMotor1.set(ControlMode.Position, setpoint);
-		liftMotor2.set(ControlMode.Position, setpoint);
+	//	liftMotor2.set(ControlMode.Position, setpoint);
 	}
 	
 	public void stopLift() {
@@ -115,7 +112,7 @@ public class Lift extends Subsystem {
 	}
 	
 	public double getLiftEncoderValue() {
-		return liftMotor1.getSelectedSensorPosition(0);
+		return liftMotor2.getSelectedSensorPosition(0);
 	}
 	
 	public void configMaxOutputs(double maxPower) {

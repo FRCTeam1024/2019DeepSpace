@@ -36,14 +36,14 @@ public class OI {
 	public final Joystick lJoy = new Joystick(Constants.LEFT_JOYSTICK_PORT);
 	public final Joystick rJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
 	public final Logitech logi = new Logitech(Constants.LOGITECH_JOYSTICK_PORT);
-	// public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
-	// JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_HEIGHT);
-	// JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
-	// JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
-	// JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_HEIGHT);
-	// JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
-	// JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
-	// JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP_HEIGHT);
+	 public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
+	 JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO);
+	 //JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_HEIGHT);
+	 //JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_HEIGHT);
+	 //JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_HEIGHT);
+	 //JoystickButton liftRocketHatchLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_HATCH_HEIGHT);
+	 //JoystickButton liftRocketHatchLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_HATCH_HEIGHT);
+	 JoystickButton liftCargoShip = new JoystickButton(usbJoy, Constants.CARGO_SHIP);
 
 	JoystickButton beakExtend = new JoystickButton(lJoy, Constants.BEAK_EXTEND);
 	JoystickButton beakRetract = new JoystickButton(lJoy, Constants.BEAK_RETRACT);
@@ -88,8 +88,8 @@ public class OI {
 		
 
 
-		// liftCargoShip.whenActive(new LiftCargoShip());
-		// liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOne());
+		liftCargoShip.whenActive(new LiftCargoShipPID());
+		liftRocketCargoLevelOne.whenActive(new LiftRocketCargoLevelOnePID());
 		// liftRocketCargoLevelTwo.whenActive(new LiftRocketCargoLevelTwo());
 		// liftRocketCargoLevelThree.whenActive(new LiftRocketCargoLevelThree());
 		// liftRocketHatchLevelOne.whenActive(new LiftRocketHatchLevelOne());

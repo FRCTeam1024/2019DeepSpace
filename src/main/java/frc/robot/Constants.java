@@ -89,7 +89,7 @@ public class Constants {
 	public static final double ROCKET_LEVEL_ONE_HATCH_HEIGHT = 9;
 	public static final double ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8;
 	public static final double ROCKET_LEVEL_THREE_HATCH_HEIGHT = 7;
-	public static final double ROCKET_LEVEL_ONE_CARGO_HEIGHT = 6;
+	public static final double ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
 	public static final double ROCKET_LEVEL_TWO_CARGO_HEIGHT = 5;
 	public static final double ROCKET_LEVEL_THREE_CARGO_HEIGHT = 4;
 

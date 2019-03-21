@@ -23,8 +23,9 @@ public class MoveLiftPID extends Command {
     }
 
     protected void execute() {
+		/*
     	if(Robot.lift.getCommandedOutput() > 0.0) {
-    		if (Robot.lift.getLiftEncoderValue() < 25000 /*&& !Robot.oi.getOverrideButton()*/) {
+    		if (Robot.lift.getLiftEncoderValue() < 25000 /*&& !Robot.oi.getOverrideButton()) {
         		Robot.lift.configMaxOutputs(1.0);
 //        		System.out.println("1");
     		} else {
@@ -33,7 +34,7 @@ public class MoveLiftPID extends Command {
 
     		}
     	} else if(Robot.lift.getCommandedOutput() < 0.0) {
-    		if (Robot.lift.getLiftEncoderValue() > 3000 /*&& !Robot.oi.getOverrideButton()*/) {
+    		if (Robot.lift.getLiftEncoderValue() > 3000 /*&& !Robot.oi.getOverrideButton()) {
     			Robot.lift.configMaxOutputs(1.0);
 //        		System.out.println("3");
     		} else {
@@ -45,6 +46,7 @@ public class MoveLiftPID extends Command {
 //    		System.out.println("5");
     	}
 //    	System.out.println(Robot.lift.liftMotor1.getMotorOutputPercent());
+*/
     }
     
     private void log(Object msg) {
