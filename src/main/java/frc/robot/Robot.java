@@ -43,6 +43,7 @@ import frc.robot.commands.commandgroups.*;
 import frc.robot.commands.intake_commands.cargo_commands.CargoHeadSpeed;
 import frc.robot.commands.intake_commands.cargo_commands.CargoWithJoystick;
 import frc.robot.commands.lift_commands.MoveLiftWithJoysticks;
+import frc.robot.commands.lift_commands.MoveLiftWithJoysticksPID;
 import frc.robot.commands.limelight_commands.*;
 
 import frc.robot.commands.drivetrain_commands.*;
@@ -63,6 +64,7 @@ public class Robot extends TimedRobot {
 	public static Command cargoPickup;
 	Command driveWithJoysticks = new DriveWithJoysticks();
 	Command	tiltWithJoysticks = new TiltWithJoystick();
+	Command liftWithJoysticksPID = new MoveLiftWithJoysticksPID();
 	Command liftWithJoysticks = new MoveLiftWithJoysticks();
 
 	public static boolean DRIVE_FORWARD = true;
@@ -102,7 +104,7 @@ public class Robot extends TimedRobot {
 	}
 
 	private void initLogging() {
-		// HelixEvents.getInstance().startLogging();
+		HelixEvents.getInstance().startLogging();
 		
 	}
 	// public boolean getLimitSwitchTop(){
@@ -209,6 +211,8 @@ public class Robot extends TimedRobot {
 		// SmartDashboard.putNumber("Limelight Horizontal", hor);
 		// SmartDashboard.putNumber("Limelight Vertical", vert);
 		// SmartDashboard.putNumber("LimelightArea Calculated", areaCalc);
+
+		SmartDashboard.putData(Robot.lift);
 	}
 	
 	public static double getLimeLightX(){
@@ -242,7 +246,7 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putBoolean("ON WHITE TAPE", true);
 		}
 
-		//outputToSmartDashboard();
+		outputToSmartDashboard();
 		//drivetrain.outputToSmartDashboard();
 
 		//intake.setCubeLight();

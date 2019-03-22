@@ -90,7 +90,7 @@ public class Constants {
 	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8000;
 	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 19000;
 	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 14000;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 13700;
 	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 21000;
 	public static final int LIFT_ENCODER_TOLERANCE = 100;
 
@@ -113,7 +113,7 @@ public class Constants {
 	public static final int ROCKET_LEVEL_ONE_HATCH_BUTTON = 9;
 	public static final int ROCKET_LEVEL_TWO_HATCH_BUTTON = 8;
 	public static final int ROCKET_LEVEL_THREE_HATCH_BUTTON = 7;
-	public static final int ROCKET_LEVEL_ONE_CARGO_BUTTON = 6;
+	public static final int ROCKET_LEVEL_ONE_CARGO_BUTTON = 7;//on left joystick
 	public static final int ROCKET_LEVEL_TWO_CARGO_BUTTON = 5;
 	public static final int ROCKET_LEVEL_THREE_CARGO_BUTTON = 4;
 
@@ -125,13 +125,13 @@ public class Constants {
 
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
-	public static final int CARGO_SLOW = 1;
+	public static final int CARGO_SLOW = 8;
 	public static final int TILT_UP = 2;
 	public static final int TILT_DOWN = 4;
 	public static final int TILT_NEUTRAL = 3;
 
-	public static final int OVEROLLER_RETRACT = 10;
-	public static final int OVEROLLER_EXTEND = 9;
+	public static final int OVEROLLER_RETRACT = 5;
+	public static final int OVEROLLER_EXTEND = 7;
 	public static final int OVEROLLER_IN_RJOY = 4;
 	public static final int OVEROLLER_IN_LOGI = 8;
 	public static final int OVEROLLER_OUT = 3;

@@ -99,6 +99,11 @@ public class Lift extends Subsystem {
 	public void stopLift() {
 		moveCarriage(0.0);
 	}
+
+	public void holdLift() {
+		System.out.println("HOLDING LIFT AT 50%");
+		moveCarriage(0.50);
+	}
 	
 	public void resetEncoder() {
 		liftMotor2.setSelectedSensorPosition(0, 0, 10);

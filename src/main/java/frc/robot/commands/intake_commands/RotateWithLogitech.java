@@ -24,19 +24,17 @@ public class RotateWithLogitech extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.oi.logi.getPOV() == 90){
+    if(Robot.oi.logi.getPOV() == 180){
       Robot.intake.rotateLeft();;
-    }else if(Robot.oi.logi.getPOV() == 270){
+    }else if(Robot.oi.logi.getPOV() == 90){
       Robot.intake.rotateNeutral();;
-    }else if(Robot.oi.logi.getPOV() == 180){
-      Robot.intake.rotateRight();;
     }
 
-    if(Robot.oi.logi.getRawButton(2)){
+    if(Robot.oi.logi.getRawButton(1) || Robot.oi.logi.getRawButton(4)){
       Robot.intake.tiltDown();
-    }else if(Robot.oi.logi.getRawButton(4)){
+    }else if(Robot.oi.logi.getRawButton(2) || Robot.oi.logi.getRawButton(3)){
       Robot.intake.tiltUp();
-    }else if(Robot.oi.logi.getRawButton(3)){
+    }else if(Robot.oi.logi.getRawButton(10)){
       Robot.intake.tiltNeutral();
     }
   }

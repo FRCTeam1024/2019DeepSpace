@@ -9,20 +9,24 @@ package frc.robot.commands.lift_commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.*;
+import frc.robot.logging.HelixEvents;
 
 public class MoveLiftPID extends Command {
 	Level level;
 	
 	public MoveLiftPID(Level level) {
-    	requires(Robot.lift);
+		requires(Robot.lift);
+		log("Constructor with level : " + level + ", height : " + level.getHeight());
     	this.level = level;
     }
 
     protected void initialize() {
+		log("Initialize");
     	Robot.lift.setPIDSetpoint(level.getHeight());
     }
 
     protected void execute() {
+		log("Excecuting...");
 		/*
     	if(Robot.lift.getCommandedOutput() > 0.0) {
     		if (Robot.lift.getLiftEncoderValue() < 25000 /*&& !Robot.oi.getOverrideButton()) {
@@ -49,12 +53,17 @@ public class MoveLiftPID extends Command {
 */
     }
     
-    private void log(Object msg) {
-    	System.out.println(msg);
+    private void log(String msg) {
+		HelixEvents.getInstance().addEvent("MoveLiftPID", msg);
+    	// System.out.println(msg);
     }
 
     protected boolean isFinished() {
-    	if (Robot.lift.getLiftEncoderValue() < level.getHeight() - 100 || Robot.lift.getLiftEncoderValue() > level.getHeight() + 100) {
+		double liftValue = Robot.lift.getLiftEncoderValue();
+		log("isFinished, height : " + liftValue + ", targetHeight : " + level.getHeight());
+		if (Robot.lift.getLiftEncoderValue() < level.getHeight() - 100 || 
+			Robot.lift.getLiftEncoderValue() > level.getHeight() + 100) {
+			log("isFinished : FALSE");
     		return false;
     	} else {
     		log("FINISHING MOVE LIFT PID");
@@ -63,10 +72,12 @@ public class MoveLiftPID extends Command {
     }
 
     protected void end() {
-    	Robot.lift.stopLift();
+		log("END");
+    	Robot.lift.holdLift();
     }
 
     protected void interrupted() {
+		log("Interrrupted");
     	end();
     }
 }

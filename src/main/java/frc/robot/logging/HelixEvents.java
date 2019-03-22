@@ -8,10 +8,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Notifier;
+import edu.wpi.first.wpilibj.Timer;
 
 // can view log files at ftp://10.10.24.2/home/lvuser/logs/
 public class HelixEvents {
@@ -63,7 +65,14 @@ public class HelixEvents {
 						DriverStation.getInstance().getMatchType() + 
 						DriverStation.getInstance().getMatchNumber() + "Events.txt");
 			} else {
-				file = Paths.get(loggingLocation + "testEvents.txt");
+				Date now = new Date();
+				StringBuffer sb = new StringBuffer().append(now.getHours())
+									.append(":")
+									.append(now.getMinutes())
+									.append(":")
+									.append(now.getSeconds());
+				String timestamp = sb.toString();
+				file = Paths.get(loggingLocation + "testEvents" + timestamp + ".txt");
 			}
 			if (Files.exists(file)) {
 				Files.delete(file);

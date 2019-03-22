@@ -37,7 +37,7 @@ public class OI {
 	public final Joystick rJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
 	public final Logitech logi = new Logitech(Constants.LOGITECH_JOYSTICK_PORT);
 	 public final Joystick usbJoy = new Joystick(Constants.BUTTON_PANNEL_PORT);
-	 JoystickButton liftRocketCargoLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_CARGO_BUTTON);
+	 JoystickButton liftRocketCargoLevelOne = new JoystickButton(lJoy, Constants.ROCKET_LEVEL_ONE_CARGO_BUTTON);
 	 JoystickButton liftRocketCargoLevelTwo = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_TWO_CARGO_BUTTON);
 	 JoystickButton liftRocketCargoLevelThree = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_THREE_CARGO_BUTTON);
 	 JoystickButton liftRocketHatchLevelOne = new JoystickButton(usbJoy, Constants.ROCKET_LEVEL_ONE_HATCH_BUTTON);
