@@ -86,12 +86,12 @@ public class Constants {
 	public static final double MAX_HEIGHT = 26113;
 
 	public static final int CARGO_SHIP_HEIGHT = 1000;
-	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 1000;
-	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8000;
-	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 19000;
+	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 0;
+	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8500;
+	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 17200;
 	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 13700;
-	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 21000;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 13250;
+	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 20400;
 	public static final int LIFT_ENCODER_TOLERANCE = 100;
 
 	// Controller Constants:
@@ -113,7 +113,7 @@ public class Constants {
 	public static final int ROCKET_LEVEL_ONE_HATCH_BUTTON = 9;
 	public static final int ROCKET_LEVEL_TWO_HATCH_BUTTON = 8;
 	public static final int ROCKET_LEVEL_THREE_HATCH_BUTTON = 7;
-	public static final int ROCKET_LEVEL_ONE_CARGO_BUTTON = 7;//on left joystick
+	public static final int ROCKET_LEVEL_ONE_CARGO_BUTTON = 6;
 	public static final int ROCKET_LEVEL_TWO_CARGO_BUTTON = 5;
 	public static final int ROCKET_LEVEL_THREE_CARGO_BUTTON = 4;
 

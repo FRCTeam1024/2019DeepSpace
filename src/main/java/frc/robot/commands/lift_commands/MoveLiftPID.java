@@ -73,7 +73,9 @@ public class MoveLiftPID extends Command {
 
     protected void end() {
 		log("END");
-    	Robot.lift.holdLift();
+		// commented out this holdLift() once we set brake mode on lift talons via Phoenix Tuner
+		// but keeping it here just in case we need to go back to it
+    	//Robot.lift.holdLift();
     }
 
     protected void interrupted() {
