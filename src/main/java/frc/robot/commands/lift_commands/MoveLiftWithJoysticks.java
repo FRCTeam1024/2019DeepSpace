@@ -50,8 +50,7 @@ public double movePower;
 		if(movePower < 0.02 && movePower > -0.02) {
 			movePower = 0.10;
 		}
-		log("executing, power = " + movePower);
-
+		
 		if(Robot.lift.getLimitSwitchTop() == false){ //if top limit switch is pressed
 			//	System.out.println("top false");
 				if(movePower > 0.0){

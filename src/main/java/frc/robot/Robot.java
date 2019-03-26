@@ -183,36 +183,43 @@ public class Robot extends TimedRobot {
 	//	Robot.sensors.printValue();
 		// SmartDashboard.putData(Robot.intake);
 
-		// NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-		// NetworkTableEntry tx;
-		// NetworkTableEntry ty;
-		// NetworkTableEntry ta;
-		// NetworkTableEntry thor;
-		// NetworkTableEntry tvert;
+		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+		NetworkTableEntry tx;
+		NetworkTableEntry tx1;
+		NetworkTableEntry ty;
+		NetworkTableEntry tv;
+		NetworkTableEntry ta;
+		NetworkTableEntry thor;
+		NetworkTableEntry tvert;
 		
-		// tx = table.getEntry("tx");
-		// ty = table.getEntry("ty");
-		// ta = table.getEntry("ta");
-		// thor = table.getEntry("thor");
-		// tvert = table.getEntry("tvert");
+		tx = table.getEntry("tx");
+		tx1 = table.getEntry("tx1");
+		tv = table.getEntry("tv");
+		ty = table.getEntry("ty");
+		ta = table.getEntry("ta");
+		thor = table.getEntry("thor");
+		tvert = table.getEntry("tvert");
 
-		// //read values periodically
-		// LimeX = tx.getDouble(0.0);
-		// double y = ty.getDouble(0.0);
-		// double area = ta.getDouble(0.0);
-		// double hor = thor.getDouble(0.0);
-		// double vert = tvert.getDouble(0.0);
-		// double areaCalc = hor*vert;
+		//read values periodically
+		LimeX = tx.getDouble(0.0);
+		double y = ty.getDouble(0.0);
+		double area = ta.getDouble(0.0);
+		double hor = thor.getDouble(0.0);
+		double vert = tvert.getDouble(0.0);
+		double areaCalc = hor*vert;
 
-		// //post to smart dashboard periodically
-		// SmartDashboard.putNumber("LimelightX", LimeX);
-		// SmartDashboard.putNumber("LimelightY", y);
-		// SmartDashboard.putNumber("LimelightArea", area);
-		// SmartDashboard.putNumber("Limelight Horizontal", hor);
-		// SmartDashboard.putNumber("Limelight Vertical", vert);
-		// SmartDashboard.putNumber("LimelightArea Calculated", areaCalc);
+		//post to smart dashboard periodically
+		SmartDashboard.putNumber("LimelightTX", LimeX);
+		SmartDashboard.putNumber("LimelightTX1", tx1.getDouble(0.0));
+		SmartDashboard.putNumber("LimelightY", y);
+		SmartDashboard.putNumber("LimelightArea", area);
+		SmartDashboard.putNumber("Limelight Horizontal", hor);
+		SmartDashboard.putNumber("Limelight Vertical", vert);
+		SmartDashboard.putNumber("LimelightArea Calculated", areaCalc);
+		SmartDashboard.putNumber("Limelight Valid Targets", tv.getDouble(0.0));
 
 		SmartDashboard.putData(Robot.lift);
+		SmartDashboard.putData(Robot.drivetrain);
 	}
 	
 	public static double getLimeLightX(){

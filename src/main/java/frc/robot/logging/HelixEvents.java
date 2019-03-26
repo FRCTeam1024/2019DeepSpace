@@ -65,14 +65,19 @@ public class HelixEvents {
 						DriverStation.getInstance().getMatchType() + 
 						DriverStation.getInstance().getMatchNumber() + "Events.txt");
 			} else {
-				Date now = new Date();
-				StringBuffer sb = new StringBuffer().append(now.getHours())
-									.append(":")
-									.append(now.getMinutes())
-									.append(":")
-									.append(now.getSeconds());
-				String timestamp = sb.toString();
-				file = Paths.get(loggingLocation + "testEvents" + timestamp + ".txt");
+				// if we want to timestamp files, use this
+				// but we need to figure out how to delete old ones
+				// Date now = new Date();
+				// StringBuffer sb = new StringBuffer().append(now.getHours())
+				// 					.append(":")
+				// 					.append(now.getMinutes())
+				// 					.append(":")
+				// 					.append(now.getSeconds());
+				// String timestamp = sb.toString();
+				// file = Paths.get(loggingLocation + "testEvents" + timestamp + ".txt");
+				 
+				// but for now just use one file, which should over-write the last one
+				file = Paths.get(loggingLocation + "testEvents.txt");
 			}
 			if (Files.exists(file)) {
 				Files.delete(file);
