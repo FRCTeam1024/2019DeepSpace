@@ -5,19 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.commandgroups;
+package frc.robot.commands.autodriving;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.intake_commands.RotateHeadRight;
-import frc.robot.commands.intake_commands.TiltHeadDown;
-import frc.robot.commands.intake_commands.TiltHeadUp;
 
-public class RotateLeftAndTiltHead extends CommandGroup {
+// try to get us flush on both sides of the target
+// because sometimes the DriveToVisibleTarget gets us centered on the target, 
+// but at an angle; i.e. not perpendicular
+public class CenterOnVisibleTarget extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public RotateLeftAndTiltHead(double delay) {
- 
+  public CenterOnVisibleTarget() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -34,7 +33,10 @@ public class RotateLeftAndTiltHead extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-    addSequential(new RotateHeadRight(delay));
-    addSequential(new TiltHeadDown());
+    addSequential(new DriveToVisibleTarget());
+    // do the following drive straight to try to get us flush on both sides of the target
+    // because sometimes the DriveToVisibleTarget gets us centered on the target, 
+    // but at an angle; i.e. not perpendicular
+    addSequential(new DriveStraightTimed(0.75));
   }
 }

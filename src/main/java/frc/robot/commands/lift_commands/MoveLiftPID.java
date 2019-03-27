@@ -22,7 +22,9 @@ public class MoveLiftPID extends Command {
 
     protected void initialize() {
 		log("Initialize");
-    	Robot.lift.setPIDSetpoint(level.getHeight());
+		// for some reason, all the switching of lift and lift encoders, made us
+		// have to put the - here
+    	Robot.lift.setPIDSetpoint(-level.getHeight());
     }
 
     protected void execute() {

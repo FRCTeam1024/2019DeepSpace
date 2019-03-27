@@ -123,13 +123,13 @@ public class Intake extends Subsystem {
     openCenterTilt.set(DoubleSolenoid.Value.kOff);
   }
 
-  public void rotateRight(){
+  public void rotateRightOld(){
     //Not sure of direction yet
    // openCenterRotate.set(DoubleSolenoid.Value.kReverse);
    
   }
 
-  public void rotateLeft(){
+  public void rotateRight(){
     //Not sure of direction yet
     openCenterRotate.set(true);
   }

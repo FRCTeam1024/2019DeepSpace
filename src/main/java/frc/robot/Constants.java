@@ -126,9 +126,11 @@ public class Constants {
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
 	public static final int CARGO_SLOW = 8;
-	public static final int TILT_UP = 2;
-	public static final int TILT_DOWN = 4;
-	public static final int TILT_NEUTRAL = 3;
+	public static final int LOGITECH_X_BUTTON = 1;
+	public static final int LOGITECH_Y_BUTTON = 4;
+	public static final int LOGITECH_A_BUTTON = 2;
+	public static final int LOGITECH_B_BUTTON = 3;
+	public static final int TILT_NEUTRAL = 10;
 
 	public static final int OVEROLLER_RETRACT = 5;
 	public static final int OVEROLLER_EXTEND = 7;
@@ -139,6 +141,7 @@ public class Constants {
 
 	public static final int CARGO_PICKUP = 5;
 	public static final int DRIVE_TO_VISIBLE_TARGET = 8;
+	public static final int DRIVE_STRAIGHT_TEST = 9;
 
 	public static final int RAMP_EXTEND = 7;
 	public static final int RAMP_RETRACT = 5;

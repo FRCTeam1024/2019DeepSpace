@@ -23,7 +23,7 @@ public class CargoWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(Robot.oi.logi.getRawAxis(Constants.CARGO_STICK_AXIS));
+    Robot.intake.cargoheadSpeed(-Robot.oi.logi.getRawAxis(Constants.CARGO_STICK_AXIS));
   }
 
   // Make this return true when this Command no longer needs to run execute()

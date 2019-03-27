@@ -70,8 +70,8 @@ public class Lift extends Subsystem {
 	
 	public Lift () {
 		liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
-		limitSwitchTop = new DigitalInput(0);
-        limitSwitchBottom = new DigitalInput(1);
+		limitSwitchTop = new DigitalInput(1);
+        limitSwitchBottom = new DigitalInput(0);
 		liftMotor1.follow(liftMotor2);
 		liftMotor1.config_kP(0, Constants.LIFT_KP, 10);
 		liftMotor1.config_kI(0, Constants.LIFT_KI, 10);

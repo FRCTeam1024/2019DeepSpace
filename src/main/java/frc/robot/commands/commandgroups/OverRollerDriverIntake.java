@@ -17,7 +17,7 @@ public class OverRollerDriverIntake extends CommandGroup {
    * Add your docs here.
    */
   public OverRollerDriverIntake() {
-    addSequential(new RotateHeadLeft());
+    addSequential(new RotateHeadRight());
     addSequential(new TiltHeadDown(0.3));
     addSequential(new OverRollerSpeed());
 

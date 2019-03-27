@@ -25,9 +25,9 @@ public class RotateWithLogitech extends Command {
   @Override
   protected void execute() {
     if(Robot.oi.logi.getPOV() == 180){
-      Robot.intake.rotateLeft();;
+      Robot.intake.rotateRight();
     }else if(Robot.oi.logi.getPOV() == 90){
-      Robot.intake.rotateNeutral();;
+      Robot.intake.rotateNeutral();
     }
 
     if(Robot.oi.logi.getRawButton(1) || Robot.oi.logi.getRawButton(4)){

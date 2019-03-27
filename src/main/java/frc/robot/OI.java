@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.buttons.Trigger.ButtonScheduler;
 import frc.robot.commands.commandgroups.OverRollerDriverIntake;
-import frc.robot.commands.intake_commands.RotateHeadLeft;
 import frc.robot.commands.intake_commands.RotateHeadNeutral;
 import frc.robot.commands.intake_commands.RotateHeadRight;
 import frc.robot.commands.intake_commands.TiltHeadDown;
@@ -68,9 +67,12 @@ public class OI {
 	
 	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
 	JoystickButton driveToVisibleTarget = new JoystickButton(lJoy, Constants.DRIVE_TO_VISIBLE_TARGET);
-
-	JoystickButton tiltUp = new JoystickButton(logi, Constants.TILT_UP);
-	JoystickButton tiltDown = new JoystickButton(logi, Constants.TILT_DOWN);
+	JoystickButton driveStraightTest = new JoystickButton(lJoy, Constants.DRIVE_STRAIGHT_TEST);
+	JoystickButton xButton = new JoystickButton(logi, Constants.LOGITECH_X_BUTTON);
+	JoystickButton yButton = new JoystickButton(logi, Constants.LOGITECH_Y_BUTTON);
+	JoystickButton aButton = new JoystickButton(logi, Constants.LOGITECH_A_BUTTON);
+	JoystickButton bButton = new JoystickButton(logi, Constants.LOGITECH_B_BUTTON);
+	// JoystickButton tiltDown = new JoystickButton(logi, Constants.TILT_DOWN);
 	JoystickButton tiltNeutral = new JoystickButton(logi, Constants.TILT_NEUTRAL);
 	//JoystickButton turnToCenterLimelight = new JoystickButton(usbJoy, Constants.TURN_CENTER_LIMELIGHT_BUTTON);
 	//JoystickButton backToDriveWithJoystick = new JoystickButton(lJoy, Constants.LEFT_JOYSTICK_TRIGGER);
@@ -115,8 +117,10 @@ public class OI {
 		cargoForward.whileHeld(new ShootCargoHead());
 		cargoBackward.whileHeld(new IntakeCargoHead(-.15));
 		cargoSlow.whileHeld(new CargoHeadSlowSpeed());
-		tiltDown.whenPressed(new TiltHeadDown());
-		tiltUp.whenPressed(new TiltHeadUp());
+		xButton.whenPressed(new TiltHeadUp());
+		yButton.whenPressed(new TiltHeadUp());
+		aButton.whenPressed(new TiltHeadDown());
+		bButton.whenPressed(new TiltHeadDown());
 		tiltNeutral.whenPressed(new TiltNeutral());
 		
 		rampExtend.whenPressed(new ExtendRamp());
@@ -125,14 +129,16 @@ public class OI {
 		shiftLow.whenPressed(new ShiftLow());
 
 		flipDirection.whenPressed(new FlipDirection());
-		driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
+		// driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
+		driveToVisibleTarget.whenPressed(new CenterOnVisibleTarget());
+		driveStraightTest.whenPressed(new DriveStraightTimed(1));
 		
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
 		//logi.dPad.up.whenPressed(new IntakeExtend());
 		//logi.dPad.right.whenPressed(new RotateHeadNeutral());
-		logi.dPad.left.whenPressed(new RotateHeadLeft());
-		logi.dPad.down.whenPressed(new RotateHeadNeutral());
+		logi.dPad.right.whenPressed(new RotateHeadRight());
+		logi.dPad.up.whenPressed(new RotateHeadNeutral());
 		// logi.dPad.upLeft.whenPressed(new IntakeExtendNarrow());
 		// logi.dPad.upRight.whenPressed(new IntakeExtendFlat());
 		//	logi.a.whenPressed(new TurnToTarget());
