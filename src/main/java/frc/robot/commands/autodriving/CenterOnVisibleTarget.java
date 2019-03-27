@@ -33,10 +33,15 @@ public class CenterOnVisibleTarget extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
+
+    // first go straight a bit, to try to do a wider curve, to try to get us oriented
+    // perpendicular
+    // addSequential(new DriveStraightTimed(0.4));
+
     addSequential(new DriveToVisibleTarget());
     // do the following drive straight to try to get us flush on both sides of the target
     // because sometimes the DriveToVisibleTarget gets us centered on the target, 
     // but at an angle; i.e. not perpendicular
-    addSequential(new DriveStraightTimed(0.75));
+    addSequential(new DriveStraightTimed(0.5));
   }
 }

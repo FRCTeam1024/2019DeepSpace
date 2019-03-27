@@ -86,9 +86,7 @@ public class Robot extends TimedRobot {
 			NetworkTableEntry ty;
 			NetworkTableEntry ta;
 			initLogging();
-			sensors.startColorSensor();
-
-			
+			sensors.startColorSensor();			
 		
 			// UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
 		
@@ -99,13 +97,11 @@ public class Robot extends TimedRobot {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	
 	}
 
 	private void initLogging() {
-		HelixEvents.getInstance().startLogging();
-		
+		// HelixEvents.getInstance().startLogging();
 	}
 	// public boolean getLimitSwitchTop(){
 	// 	return limitSwitchTop.get();

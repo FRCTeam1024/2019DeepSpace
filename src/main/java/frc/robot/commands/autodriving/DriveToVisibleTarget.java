@@ -49,7 +49,8 @@ public class DriveToVisibleTarget extends Command {
   }
 
   private void log(String msg) {
-    HelixEvents.getInstance().addEvent("DriveToVisibleTarget", msg);
+    //HelixEvents.getInstance().addEvent("DriveToVisibleTarget", msg);
+    System.out.println("DriveToVisibleTarget  : " + msg);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -69,6 +70,7 @@ public class DriveToVisibleTarget extends Command {
     tx0 =limelightTable.getEntry("tx0");
     tx1 =limelightTable.getEntry("tx1");
     double txNum = tx.getDouble(0.0);
+    double tyNum = ty.getDouble(0.0);
     double area = ta.getDouble(0.0);
     double validObjects = tv.getDouble(0.0);
     double limeX = tx.getDouble(0.0);
@@ -103,21 +105,29 @@ public class DriveToVisibleTarget extends Command {
       // and txNum is the center of that box; if it's positive, it's to the right,
       // so we want to turn right
       log("tx = " + txNum);
-      // log("ty = " + ty.getDouble(0.0));
+      log("ty = " + ty.getDouble(0.0));
       // log("area = " + area);
       // log("txZero = " + txZero);
       // log("txOne = " + txOne);
-      if (txNum < -1.0) { // target is to the left of center, so curve left
-        log("target to left so curving left");
-        Robot.drivetrain.drive(-0.50, -0.30);
-      } else if (txNum > 1.0  ) { // target is to the right of center, so curve right
-        log("target to right so curving right");
-        Robot.drivetrain.drive(-0.30, -0.50);
-      } else if(txNum < 1.0 && txNum > -1.0) { // roughly center so drive straight
-        log("going straight");
-        Robot.drivetrain.drive(-0.50, -0.50);
+
+      // use tyNum < 6 because as the robot approaches the target, the target
+      // moves up in the camera field of view, and gets erratic, and we don't
+      // want to follow it anymore; at that point, just continue forward X distance
+      if(tyNum < 6) {
+        if (txNum < -1.0) { // target is to the left of center, so curve left
+          log("target to left so curving left");
+          Robot.drivetrain.drive(-0.50, -0.30);
+        } else if (txNum > 1.0  ) { // target is to the right of center, so curve right
+          log("target to right so curving right");
+          Robot.drivetrain.drive(-0.30, -0.50);
+        } else if(txNum < 1.0 && txNum > -1.0) { // roughly center so drive straight
+          log("going straight");
+          Robot.drivetrain.drive(-0.50, -0.50);
+        }
       }
     } else if(validObjects == 0) { //THIS NEEDS TO CHANGE, NEEDS TO GO A DISTANCE
+      // hopefully this is happening as we get close to the target, and the target
+      // goes up out of frame
       numFramesNoImages++;
       log("NO VALID OBJECTS");
       //isFinished = true;
