@@ -16,7 +16,7 @@ public class ExtendOverRoller extends Command {
   private boolean isFinished = false;
 
   public ExtendOverRoller() {
-   // requires(Robot.intake);
+    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
