@@ -85,12 +85,12 @@ public class Constants {
 	public static final double SCALE_LOSS_HEIGHT = 25000.0;
 	public static final double MAX_HEIGHT = 26113;
 
-	public static final int CARGO_SHIP_HEIGHT = 1000;
+	public static final int CARGO_SHIP_HEIGHT = 8536;
 	public static final int ROCKET_LEVEL_ONE_HATCH_HEIGHT = 0;
-	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8500;
+	public static final int ROCKET_LEVEL_TWO_HATCH_HEIGHT = 8300;
 	public static final int ROCKET_LEVEL_THREE_HATCH_HEIGHT = 17200;
-	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 5000;
-	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 13250;
+	public static final int ROCKET_LEVEL_ONE_CARGO_HEIGHT = 3340;
+	public static final int ROCKET_LEVEL_TWO_CARGO_HEIGHT = 12357;
 	public static final int ROCKET_LEVEL_THREE_CARGO_HEIGHT = 20400;
 	public static final int LIFT_ENCODER_TOLERANCE = 100;
 
@@ -126,6 +126,7 @@ public class Constants {
 	public static final int CARGO_OUT_RIGHT = 11;
 	public static final int CARGO_OUT_LEFT = 12;
 	public static final int CARGO_SLOW = 8;
+	public static final int CARGO_SLOW_REVERSE = 6;
 	public static final int LOGITECH_X_BUTTON = 1;
 	public static final int LOGITECH_Y_BUTTON = 4;
 	public static final int LOGITECH_A_BUTTON = 2;
@@ -134,12 +135,15 @@ public class Constants {
 
 	public static final int OVEROLLER_RETRACT = 5;
 	public static final int OVEROLLER_EXTEND = 7;
-	public static final int OVEROLLER_IN_RJOY = 4;
+	public static final int OVEROLLER_IN = 3;
+	public static final int OVEROLLER_OUT = 4;
+
 	public static final int OVEROLLER_IN_LOGI = 8;
-	public static final int OVEROLLER_OUT = 3;
+	public static final int OVEROLLER_IN_RJOY = 4;
 	//public static final int OVEROLLER_TOGGLE = 10;
 
 	public static final int CARGO_PICKUP = 5;
+	public static final int SWITCH_CAMERA = 14;
 	public static final int DRIVE_TO_VISIBLE_TARGET = 8;
 	public static final int DRIVE_STRAIGHT_TEST = 9;
 

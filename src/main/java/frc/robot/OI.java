@@ -55,12 +55,15 @@ public class OI {
 	JoystickButton overollerExtend = new JoystickButton(logi, Constants.OVEROLLER_EXTEND);
 	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
 	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
-	//JoystickButton cargoPickup = new JoystickButton(logi, Constants.CARGO_PICKUP);
+	JoystickButton switchCameraMode = new JoystickButton(lJoy, Constants.SWITCH_CAMERA);
 	JoystickButton cargoSlow = new JoystickButton(logi, Constants.CARGO_SLOW);
+	JoystickButton cargoSlowReverse = new JoystickButton(logi, Constants.CARGO_SLOW_REVERSE);
 	
+	JoystickButton overollerIn = new JoystickButton(lJoy, Constants.OVEROLLER_IN);
+	JoystickButton overollerOut = new JoystickButton(lJoy, Constants.OVEROLLER_OUT);
 	JoystickButton overollerInRJoy = new JoystickButton(rJoy, Constants.OVEROLLER_IN_RJOY);
 	//JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
-	JoystickButton overollerOut = new JoystickButton(rJoy, Constants.OVEROLLER_OUT);
+	//JoystickButton overollerOut = new JoystickButton(rJoy, Constants.OVEROLLER_OUT);
 	//JoystickButton overollerToggle = new JoystickButton(logi, Constants.OVEROLLER_TOGGLE);
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
@@ -94,7 +97,7 @@ public class OI {
 		 liftRocketCargoLevelOne.whenPressed(new LiftRocketCargoLevelOnePID());
 		 liftRocketCargoLevelTwo.whenPressed(new LiftRocketCargoLevelTwoPID());
 		 liftRocketCargoLevelThree.whenPressed(new LiftRocketCargoLevelThreePID());
-		 liftRocketHatchLevelOne.whenPressed(new LiftRocketHatchLevelOnePID());
+		 liftRocketHatchLevelOne.whenPressed(new MoveLiftDown());
 		 liftRocketHatchLevelTwo.whenPressed(new LiftRocketHatchLevelTwoPID());
 		 liftRocketHatchLevelThree.whenPressed(new LiftRocketHatchLevelThreePID());
 		
@@ -104,6 +107,8 @@ public class OI {
 		beakOpen.whenPressed(new OpenBeak());
 		beakClose.whenPressed(new CloseBeak());
 
+		overollerIn.whileHeld(new OverRollerSpeed());
+		overollerOut.whileHeld(new OverRollerSpeedReverse());
 		//overollerIn.toggleWhenPressed(new OverRollerSpeed());
 		//cargoPickup.whenPressed(new CargoPickup());
 		
@@ -117,6 +122,7 @@ public class OI {
 		cargoForward.whileHeld(new ShootCargoHead());
 		cargoBackward.whileHeld(new IntakeCargoHead(-.15));
 		cargoSlow.whileHeld(new CargoHeadSlowSpeed());
+		cargoSlowReverse.whileHeld(new CargoHeadSlowSpeedReverse());
 		xButton.whenPressed(new TiltHeadUp());
 		yButton.whenPressed(new TiltHeadUp());
 		aButton.whenPressed(new TiltHeadDown());
@@ -130,6 +136,7 @@ public class OI {
 
 		flipDirection.whenPressed(new FlipDirection());
 		// driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
+		switchCameraMode.whenPressed(new SwitchCameraMode());
 		driveToVisibleTarget.whenPressed(new CenterOnVisibleTarget());
 		driveStraightTest.whenPressed(new DriveStraightTimed(1));
 		

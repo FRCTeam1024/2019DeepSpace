@@ -110,7 +110,8 @@ public class DriveToVisibleTarget extends Command {
       // log("txZero = " + txZero);
       // log("txOne = " + txOne);
 
-      // use tyNum < 6 because as the robot approaches the target, the target
+      // use tyNum < 64
+      // because as the robot approaches the target, the target
       // moves up in the camera field of view, and gets erratic, and we don't
       // want to follow it anymore; at that point, just continue forward X distance
       if(tyNum < 6) {

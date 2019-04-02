@@ -51,16 +51,19 @@ public double movePower;
 		// 	movePower = 0.10;
 		// }
 		
-		if(Robot.lift.getLimitSwitchTop() == false) { //if top limit switch is pressed
+		if(Robot.lift.getLimitSwitchBottom() == false) { //if top limit switch is pressed
+			//THIS IS THE LOGIC FOR THE TOP LIMIT SWITCH, WE SWITCHED THIS AT CENTER GROVE
 			log("TOP limit switch FALSE, is PRESSED");
+			Robot.lift.resetEncoder();
 			if(movePower > 0.0){
 				movePower = 0.0;
 			}
 		}
 
-		if(Robot.lift.getLimitSwitchBottom() == false) { //if bottom limit switch is pressed
+		if(Robot.lift.getLimitSwitchTop() == false) { //if bottom limit switch is pressed
 			log("BOTTOM limit switch FALSE, is PRESSED");
-			Robot.lift.resetEncoder();
+			//THIS IS THE LOGIC FOR THE BOTTOM LIMIT SWITCH, WE SWITCHED THIS AT CENTER GROVE
+			
 			if(movePower < 0.0){
 				movePower = 0.0;
 			}

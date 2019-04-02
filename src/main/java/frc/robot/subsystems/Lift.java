@@ -66,8 +66,6 @@ public class Lift extends Subsystem {
 	DigitalInput limitSwitchTop;
 	DigitalInput limitSwitchBottom;
 	
-
-	
 	public Lift () {
 		liftMotor2.set(ControlMode.Follower, liftMotor1.getDeviceID());
 		limitSwitchTop = new DigitalInput(1);

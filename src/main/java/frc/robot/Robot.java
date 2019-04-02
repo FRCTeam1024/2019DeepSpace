@@ -112,11 +112,11 @@ public class Robot extends TimedRobot {
 
 
 	public static int switchCameraMode(){
-		if(cameraMode == 0){
+		/*if(cameraMode == 0){
 			cameraMode = 1;
 		}else if(cameraMode == 1){
 			cameraMode = 0;
-		}
+		}*/
 		return cameraMode;
 	}
 
