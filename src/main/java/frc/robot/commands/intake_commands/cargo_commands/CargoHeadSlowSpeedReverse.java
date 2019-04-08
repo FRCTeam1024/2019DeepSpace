@@ -24,7 +24,7 @@ public class CargoHeadSlowSpeedReverse extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(-0.25);
+    Robot.intake.cargoheadSpeed(-0.35);
   }
 
   // Make this return true when this Command no longer needs to run execute()

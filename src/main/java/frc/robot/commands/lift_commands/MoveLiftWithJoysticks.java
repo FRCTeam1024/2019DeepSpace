@@ -20,7 +20,7 @@ public double movePower;
 	}
 	
 	private void log(String msg) {
-		HelixEvents.getInstance().addEvent("MoveLiftWithJoysticks", msg);
+		// HelixEvents.getInstance().addEvent("MoveLiftWithJoysticks", msg);
     	// System.out.println(msg);
     }
 

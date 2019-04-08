@@ -14,11 +14,13 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
  * Add your docs here.
  */
 public class DriveStraightTimed extends TimedCommand {
+  double movePower;
   /**
    * Add your docs here.
    */
-  public DriveStraightTimed(double timeout) {
+  public DriveStraightTimed(double timeout, double movePower) {
     super(timeout);
+    
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.drivetrain);
@@ -32,7 +34,8 @@ public class DriveStraightTimed extends TimedCommand {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.drive(-0.50, -0.50);
+    Robot.drivetrain.drive(-movePower, -movePower);
+    System.out.println("EXECUTE");
   }
 
   // Called once after timeout

@@ -42,6 +42,6 @@ public class CenterOnVisibleTarget extends CommandGroup {
     // do the following drive straight to try to get us flush on both sides of the target
     // because sometimes the DriveToVisibleTarget gets us centered on the target, 
     // but at an angle; i.e. not perpendicular
-    addSequential(new DriveStraightTimed(0.5));
+    addSequential(new DriveStraightTimed(0.5, 0.75));
   }
 }

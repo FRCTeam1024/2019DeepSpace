@@ -65,6 +65,8 @@ public class OI {
 	//JoystickButton overollerInLogi = new JoystickButton(logi, Constants.OVEROLLER_IN_LOGI);
 	//JoystickButton overollerOut = new JoystickButton(rJoy, Constants.OVEROLLER_OUT);
 	//JoystickButton overollerToggle = new JoystickButton(logi, Constants.OVEROLLER_TOGGLE);
+	JoystickButton habExtend = new JoystickButton(lJoy, Constants.HAB_EXTEND_BUTTON);
+	JoystickButton habRetract = new JoystickButton(lJoy, Constants.HAB_RETRACT_BUTTON);
 	JoystickButton rampExtend = new JoystickButton(logi, Constants.RAMP_EXTEND);
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
@@ -138,8 +140,9 @@ public class OI {
 		// driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
 		switchCameraMode.whenPressed(new SwitchCameraMode());
 		driveToVisibleTarget.whenPressed(new CenterOnVisibleTarget());
-		driveStraightTest.whenPressed(new DriveStraightTimed(1));
-		
+		//driveStraightTest.whenPressed(new DriveStraightTimed(4, 0.5));
+		habExtend.whileHeld(new HabExtend());
+		habRetract.whileHeld(new HabRetract());
 		//closeClamp.whenPressed(new CloseClamp());
     	//openClamp.whenPressed(new OpenClamp());
 		//logi.dPad.up.whenPressed(new IntakeExtend());

@@ -7,6 +7,7 @@
 
 package frc.robot.commands.autodriving;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.logging.HelixEvents;
@@ -30,6 +31,11 @@ public class DriveToVisibleTarget extends Command {
   private NetworkTableEntry ty;
 
   private int numFramesNoImages = 0;
+
+  private double lastLimeLightX = 0;
+  private String lastDirection = "";
+  Timer timer = new Timer();
+        
   
   public DriveToVisibleTarget() {
     // Use requires() here to declare subsystem dependencies
@@ -46,10 +52,11 @@ public class DriveToVisibleTarget extends Command {
     log("initialize");
     isFinished = false;
     numFramesNoImages = 0;
+    timer.reset();
   }
 
   private void log(String msg) {
-    //HelixEvents.getInstance().addEvent("DriveToVisibleTarget", msg);
+    // HelixEvents.getInstance().addEvent("DriveToVisibleTarget", msg);
     System.out.println("DriveToVisibleTarget  : " + msg);
   }
 
@@ -115,16 +122,22 @@ public class DriveToVisibleTarget extends Command {
       // moves up in the camera field of view, and gets erratic, and we don't
       // want to follow it anymore; at that point, just continue forward X distance
       if(tyNum < 6) {
+        lastLimeLightX = txNum;
         if (txNum < -1.0) { // target is to the left of center, so curve left
           log("target to left so curving left");
+          lastDirection = "LEFT";
           Robot.drivetrain.drive(-0.50, -0.30);
         } else if (txNum > 1.0  ) { // target is to the right of center, so curve right
           log("target to right so curving right");
+          lastDirection = "RIGHT";
           Robot.drivetrain.drive(-0.30, -0.50);
         } else if(txNum < 1.0 && txNum > -1.0) { // roughly center so drive straight
           log("going straight");
+          lastDirection = "STRAIGHT";
           Robot.drivetrain.drive(-0.50, -0.50);
         }
+      } else { // images are too high, we're too close, not using limelight anymore
+        timer.start();
       }
     } else if(validObjects == 0) { //THIS NEEDS TO CHANGE, NEEDS TO GO A DISTANCE
       // hopefully this is happening as we get close to the target, and the target
@@ -136,6 +149,10 @@ public class DriveToVisibleTarget extends Command {
     if(numFramesNoImages > 10) {
       log("numFramesNoImages > 10 so finishing");
       isFinished = true;
+      double elapsedTime = timer.get();
+      log("Drove for " + elapsedTime + " seconds w/out limelight");
+      log("Last X : " + lastLimeLightX);
+      log("Last direction : " + lastDirection);
     }
 
   }

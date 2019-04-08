@@ -4,16 +4,16 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
-package frc.robot.commands.intake_commands.cargo_commands;
+/*
+package frc.robot.commands.autodriving;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.*;
 
-public class CargoHeadSlowSpeed extends Command {
-  public CargoHeadSlowSpeed() {
+public class DriveStraightTest extends Command {
+   
+  public DriveStraightTest(double timeout, double movePower) {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+   // requires(Robot.drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -24,25 +24,24 @@ public class CargoHeadSlowSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.cargoheadSpeed(0.35);
+    Robot.drivetrain.drive(-movePower, -movePower);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isFinished;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.cargoheadSpeed(0.0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }
+*/

@@ -10,7 +10,8 @@ import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.Timer;
@@ -27,7 +28,7 @@ public class HelixEvents {
 	private static Path file;
 	private static String loggingLocation = "/home/lvuser/logs/";
 	
-	private static final Queue<String> events = new LinkedList<>();
+	private static final BlockingQueue<String> events = new LinkedBlockingDeque<>();
 	
 	public void startLogging() {
 		File usb1 = new File("/media/sda1/");
@@ -98,7 +99,7 @@ public class HelixEvents {
 		
 		@Override
 		public void run() {
-			while (!events.isEmpty()) {
+			while (events.poll() != null) {
 				try {
 					String event = events.remove();
 					System.out.println(event);

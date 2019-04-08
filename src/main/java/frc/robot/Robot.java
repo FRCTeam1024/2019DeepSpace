@@ -176,7 +176,7 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putData("TurnToCenterLimelight", new TurnToCenterLimelight());
 		//SmartDashboard.putData("CurveHabToRocket", new CurveHabToRocket());
 		//SmartDashboard.putData("HabToRocketHatch", new HabToRocketHatch());
-	//	Robot.sensors.printValue();
+		Robot.sensors.printValue();
 		// SmartDashboard.putData(Robot.intake);
 
 		NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
@@ -245,7 +245,7 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Lift Encoder Value", lift.getLiftEncoderValue());
 		SmartDashboard.putBoolean("ON WHITE TAPE", false);
-		if(Robot.sensors.blue() > 100 && Robot.sensors.green() > 100 && Robot.sensors.red() > 100){
+		if(Robot.sensors.blue() > 300 && Robot.sensors.green() > 300 && Robot.sensors.red() > 300){
 			SmartDashboard.putBoolean("ON WHITE TAPE", true);
 		}
 

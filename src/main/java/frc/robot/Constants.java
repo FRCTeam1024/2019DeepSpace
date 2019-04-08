@@ -133,6 +133,9 @@ public class Constants {
 	public static final int LOGITECH_B_BUTTON = 3;
 	public static final int TILT_NEUTRAL = 10;
 
+	public static final int HAB_EXTEND_BUTTON = 15;
+	public static final int HAB_RETRACT_BUTTON = 16;
+
 	public static final int OVEROLLER_RETRACT = 5;
 	public static final int OVEROLLER_EXTEND = 7;
 	public static final int OVEROLLER_IN = 3;
