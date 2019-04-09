@@ -27,8 +27,8 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class HAB extends Subsystem {
   //change ports later
 
-  private TalonSRX habOne = new TalonSRX(RobotMap.HAB_ONE_MOTOR_PORT);
-  private TalonSRX habTwo = new TalonSRX(RobotMap.HAB_TWO_MOTOR_PORT);
+  public TalonSRX habOne = new TalonSRX(RobotMap.HAB_ONE_MOTOR_PORT);
+  public TalonSRX habTwo = new TalonSRX(RobotMap.HAB_TWO_MOTOR_PORT);
   private Solenoid habRamp = new Solenoid(Constants.CHASSIS_PCM_PORT, RobotMap.HAB_RAMP_PORT);
 
   private boolean habClimbState = true;

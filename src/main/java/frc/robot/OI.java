@@ -53,8 +53,8 @@ public class OI {
 
 	JoystickButton overollerRetract = new JoystickButton(logi, Constants.OVEROLLER_RETRACT);
 	JoystickButton overollerExtend = new JoystickButton(logi, Constants.OVEROLLER_EXTEND);
-	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
-	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
+//	JoystickButton cargoForward = new JoystickButton(lJoy, Constants.CARGO_OUT_LEFT);
+//	JoystickButton cargoBackward = new JoystickButton(lJoy, Constants.CARGO_OUT_RIGHT);
 	JoystickButton switchCameraMode = new JoystickButton(lJoy, Constants.SWITCH_CAMERA);
 	JoystickButton cargoSlow = new JoystickButton(logi, Constants.CARGO_SLOW);
 	JoystickButton cargoSlowReverse = new JoystickButton(logi, Constants.CARGO_SLOW_REVERSE);
@@ -121,8 +121,8 @@ public class OI {
 		overollerOut.whileHeld(new ReverseOverRoller());
 		//overollerToggle.toggleWhenPressed(new ExtendOverRoller());
 		
-		cargoForward.whileHeld(new ShootCargoHead());
-		cargoBackward.whileHeld(new IntakeCargoHead(-.15));
+	//	cargoForward.whileHeld(new ShootCargoHead());
+	//	cargoBackward.whileHeld(new IntakeCargoHead(-.15));
 		cargoSlow.whileHeld(new CargoHeadSlowSpeed());
 		cargoSlowReverse.whileHeld(new CargoHeadSlowSpeedReverse());
 		xButton.whenPressed(new TiltHeadUp());

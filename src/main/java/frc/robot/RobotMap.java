@@ -31,8 +31,8 @@ public class RobotMap {
 	public static final int LIFT_MOTOR_1_PORT = 6;
 	public static final int LIFT_MOTOR_2_PORT = 7;
 
-	public static final int HAB_ONE_MOTOR_PORT = 1;
-	public static final int HAB_TWO_MOTOR_PORT = 1;
+	public static final int HAB_ONE_MOTOR_PORT = 14;
+	public static final int HAB_TWO_MOTOR_PORT = 13;
 	
 	//Pnuematics:
 	public static final int INTAKE_SLIDE_PORT = 2;
