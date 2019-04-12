@@ -29,7 +29,7 @@ public class IntakeOverRoller extends Command {
   @Override
   protected void execute() {
     Robot.intake.overRollerSpeed(-0.7);
-    Timer.delay(.2);
+//    Timer.delay(.2);
     isFinished = true;
   }
 

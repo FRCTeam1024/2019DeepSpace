@@ -28,7 +28,7 @@ public class ShootCargoHead extends Command {
   @Override
   protected void execute() {
     Robot.intake.cargoheadSpeed(1.0);
-    Timer.delay(.2);
+  //  Timer.delay(.2);
     isFinished = true;
   }
 

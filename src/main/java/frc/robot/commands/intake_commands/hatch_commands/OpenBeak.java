@@ -28,7 +28,7 @@ public class OpenBeak extends Command {
   @Override
   protected void execute() {
     Robot.intake.beakOpen();
-    Timer.delay(.5);
+    //Timer.delay(.5);
     isFinished = true;
   }
 

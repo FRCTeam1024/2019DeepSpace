@@ -35,7 +35,7 @@ public class HabExtend extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.hab.habMove(-0.25);
+    Robot.hab.habMove(-1.0);
   //  System.out.println("EXECUTING");
   }
 

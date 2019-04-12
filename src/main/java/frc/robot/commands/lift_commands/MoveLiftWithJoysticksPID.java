@@ -20,25 +20,25 @@ public double movePower;
 	@Override
     protected void execute() {
     	if(Robot.lift.getCommandedOutput() > 0.0) {
-    			System.out.println("getCommandedOutput() > 0");
+    		//	System.out.println("getCommandedOutput() > 0");
     		if (Robot.lift.getLiftEncoderValue() < 25000) {
             Robot.lift.configMaxOutputs(1.00);
-            System.out.println("geLiftEncoderValue() > 0");
+            //System.out.println("geLiftEncoderValue() > 0");
     		} else {
           Robot.lift.configMaxOutputs(0.15);
-          System.out.println("configMaxOutputs(0.15");
+          //System.out.println("configMaxOutputs(0.15");
     		}
     	} else if(Robot.lift.getCommandedOutput() < 0.0) {
     		if (Robot.lift.getLiftEncoderValue() > 3000) {
           Robot.lift.configMaxOutputs(1.00);
-          System.out.println("getLiftEncoderValue() > 3000");
+       //   System.out.println("getLiftEncoderValue() > 3000");
     		} else {
           Robot.lift.configMaxOutputs(0.15);
-          System.out.println("configMaxOuputs(0.15");
+     //     System.out.println("configMaxOuputs(0.15");
     		}
     	} else {
         Robot.lift.configMaxOutputs(1.00);
-        System.out.println("configMaxOutputs(1.00");
+       // System.out.println("configMaxOutputs(1.00");
 		}
 		//if(Robot.lift.getCommandedOutput() > 0.0){
 		

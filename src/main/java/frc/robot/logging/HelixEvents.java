@@ -102,7 +102,7 @@ public class HelixEvents {
 			while (events.poll() != null) {
 				try {
 					String event = events.remove();
-					System.out.println(event);
+			//		System.out.println(event);
 					Files.write(file, event.getBytes(), StandardOpenOption.APPEND);
 				} catch (Exception e) {
 					e.printStackTrace();

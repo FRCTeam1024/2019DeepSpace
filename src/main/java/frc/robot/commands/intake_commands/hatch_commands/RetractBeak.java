@@ -28,7 +28,7 @@ public class RetractBeak extends Command {
   @Override
   protected void execute() {
       Robot.intake.beakRetract();
-      Timer.delay(.7);
+    //  Timer.delay(.7);
       isFinished = true;
   }
 

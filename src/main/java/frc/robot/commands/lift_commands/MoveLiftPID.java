@@ -58,7 +58,7 @@ public class MoveLiftPID extends Command {
     
     private void log(String msg) {
 		//HelixEvents.getInstance().addEvent("MoveLiftPID", msg);
-    	System.out.println(msg);
+    //	System.out.println(msg);
     }
 
     protected boolean isFinished() {

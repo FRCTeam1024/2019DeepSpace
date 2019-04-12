@@ -80,6 +80,7 @@ public class Lift extends Subsystem {
 		configMaxOutputs(1.0);
 		liftMotor2.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 		liftMotor1.configSelectedFeedbackSensor(RemoteFeedbackDevice.RemoteSensor0, 0, 10);
+		
 		//liftMotor1.setNeutralMode(NeutralMode.Brake);
 		//liftMotor2.setNeutralMode(NeutralMode.Brake);
 	}
@@ -99,7 +100,7 @@ public class Lift extends Subsystem {
 	}
 
 	public void holdLift() {
-		System.out.println("HOLDING LIFT AT 50%");
+	//	System.out.println("HOLDING LIFT AT 50%");
 		moveCarriage(0.50);
 	}
 	

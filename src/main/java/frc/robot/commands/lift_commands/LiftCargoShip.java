@@ -32,15 +32,15 @@ public class LiftCargoShip extends Command {
   protected void execute() {
     if(Robot.lift.getLiftEncoderValue() >= (Constants.CARGO_SHIP_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE)){
       Robot.lift.moveCarriage(-0.5);
-      System.out.println("LIFT TOO HIGH");
+   //   System.out.println("LIFT TOO HIGH");
     }
     else if(Robot.lift.getLiftEncoderValue() <= (Constants.CARGO_SHIP_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE)){
       Robot.lift.moveCarriage(0.5);
-      System.out.println("LIFT TOO LOW");
+   //   System.out.println("LIFT TOO LOW");
       }
       else if(Robot.lift.getLiftEncoderValue() > (Constants.CARGO_SHIP_HEIGHT - Constants.LIFT_ENCODER_TOLERANCE) && Robot.lift.getLiftEncoderValue() < (Constants.CARGO_SHIP_HEIGHT + Constants.LIFT_ENCODER_TOLERANCE))  {
       Robot.lift.stopLift();
-      System.out.println("LIFT AT HEIGHT");
+     // System.out.println("LIFT AT HEIGHT");
       isFinished = true;
       }
 

@@ -71,7 +71,7 @@ public class OI {
 	JoystickButton rampRetract = new JoystickButton(logi, Constants.RAMP_RETRACT);
 	
 	JoystickButton flipDirection = new JoystickButton(rJoy, Constants.FLIP_ROBOT_DIRECTION);
-	JoystickButton driveToVisibleTarget = new JoystickButton(lJoy, Constants.DRIVE_TO_VISIBLE_TARGET);
+//	JoystickButton driveToVisibleTarget = new JoystickButton(lJoy, Constants.DRIVE_TO_VISIBLE_TARGET);
 	JoystickButton driveStraightTest = new JoystickButton(lJoy, Constants.DRIVE_STRAIGHT_TEST);
 	JoystickButton xButton = new JoystickButton(logi, Constants.LOGITECH_X_BUTTON);
 	JoystickButton yButton = new JoystickButton(logi, Constants.LOGITECH_Y_BUTTON);
@@ -131,15 +131,15 @@ public class OI {
 		bButton.whenPressed(new TiltHeadDown());
 		tiltNeutral.whenPressed(new TiltNeutral());
 		
-		rampExtend.whenPressed(new ExtendRamp());
-		rampRetract.whenPressed(new RetractRamp());
+	//	rampExtend.whenPressed(new ExtendRamp());
+	//	rampRetract.whenPressed(new RetractRamp());
 		shiftHigh.whenPressed(new ShiftHigh());
 		shiftLow.whenPressed(new ShiftLow());
 
 		flipDirection.whenPressed(new FlipDirection());
 		// driveToVisibleTarget.whenPressed(new DriveToVisibleTarget());
 		switchCameraMode.whenPressed(new SwitchCameraMode());
-		driveToVisibleTarget.whenPressed(new CenterOnVisibleTarget());
+//	driveToVisibleTarget.whenPressed(new CenterOnVisibleTarget());
 		//driveStraightTest.whenPressed(new DriveStraightTimed(4, 0.5));
 		habExtend.whileHeld(new HabExtend());
 		habRetract.whileHeld(new HabRetract());

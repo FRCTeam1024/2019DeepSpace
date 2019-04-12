@@ -35,7 +35,7 @@ public class DriveStraightTimed extends TimedCommand {
   @Override
   protected void execute() {
     Robot.drivetrain.drive(-movePower, -movePower);
-    System.out.println("EXECUTE");
+  //  System.out.println("EXECUTE");
   }
 
   // Called once after timeout

@@ -28,7 +28,7 @@ public class ExtendOverRoller extends Command {
   @Override
   protected void execute() {
       Robot.intake.overRollerExtend();
-      Timer.delay(.5);
+     // Timer.delay(.5);
     isFinished = true;
   }
 

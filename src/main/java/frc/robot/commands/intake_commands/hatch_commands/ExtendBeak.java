@@ -28,7 +28,7 @@ public class ExtendBeak extends Command {
   @Override
   protected void execute() {
       Robot.intake.beakExtend();
-      Timer.delay(.7);
+     // Timer.delay(.7);
       isFinished = true;
   }
 

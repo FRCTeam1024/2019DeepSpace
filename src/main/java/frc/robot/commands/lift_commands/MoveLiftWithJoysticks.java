@@ -43,7 +43,7 @@ public double movePower;
     		Robot.lift.configMaxOutputs(1.00);
 		}*/
 		//if(Robot.lift.getCommandedOutput() > 0.0){
-		
+	
 		movePower = Robot.oi.logi.getRawAxis(Constants.LIFT_STICK_AXIS);
 
 		// just testing a hold power

@@ -28,7 +28,7 @@ public class RetractOverRoller extends Command {
   @Override
   protected void execute() {
       Robot.intake.overRollerRetract();
-      Timer.delay(.5);
+   //   Timer.delay(.5);
     isFinished = true;
   }
 

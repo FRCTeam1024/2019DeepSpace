@@ -29,7 +29,7 @@ public class IntakeCargoHead extends Command {
   @Override
   protected void execute() {
     Robot.intake.cargoheadSpeed(speed);
-    Timer.delay(.2);
+ //   Timer.delay(.2);
     isFinished = true;
   }
 
